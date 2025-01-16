@@ -24,10 +24,7 @@ const DiscordCards = () => {
       <h1 className="sm:leading-loose font-roboto_condensed tracking-tight text-3xl text-center text-discordText mb-5 mt-10">
         Be part of the discussion
       </h1>
-      <p className="font-dm_serif_display text-center text-slate-600 mb-10">
-        Join the discord community, get help on homework, connect with peers and
-        catch up on announcements.
-      </p>
+     
       <motion.ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-5 justify-items-center">
         {discordIframes.map((option, index) => (
           <motion.li key={index}>
