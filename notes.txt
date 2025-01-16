@@ -33,3 +33,14 @@ from title.tsx :
         Join the discord community, get help on homework, connect with peers and
         catch up on announcements.
       </p>
+
+      from introcards.tsx :
+
+       <p className="font-dm_serif_display text-center text-slate-100">
+          My TAs are amazing people who are available to guide you throughout
+          the semester!
+        </p>
+        <p className="font-dm_serif_display text-center text-slate-100 mb-10">
+          You may approach any TA for the course irrespective of the section you
+          are enrolled in.
+        </p>
