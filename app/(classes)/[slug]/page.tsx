@@ -34,7 +34,7 @@ export default async function Page({ params }: PageProps) {
       : 'Unknown Course'
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-gradient-to-r from-blue-50 to-blue-100">
       <Title>{title}</Title>
       <div>
         <Syllabus />

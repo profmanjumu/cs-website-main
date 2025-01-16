@@ -1,0 +1,25 @@
+from title.tsx :
+
+ <p className="font-dm_serif_display text-center text-slate-600">
+       Welcome to the knowledge hub .
+      </p>
+      <p className="font-dm_serif_display text-center text-slate-600 mb-10">
+        {' '}
+        Anything & everything you need for my sections of CS210 and CS460 can be
+        found within this website.
+      </p> 
+
+      from about.tsx :
+
+       <div className="flex items-center justify-center w-full p-3">
+          <Image
+            src="/Manju.jpeg"
+            alt="headshot"
+            width="192"
+            height="192"
+            className="h-24 w-24 rounded-full object-cover border-[0.2rem] border-white shadow-xl"
+          />
+        </div>
+
+        <h1 className="text-3xl text-center mb-5 font-roboto_condensed text-discordText"></h1>
+        

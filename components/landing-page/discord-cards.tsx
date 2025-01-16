@@ -12,6 +12,10 @@ const discordIframes = [
     name: 'CS 460',
     src: 'https://discord.com/widget?id=1183649881026461747&theme=dark',
   },
+  {
+    name: 'CS 496',
+    src: 'https://discord.com/widget?id=1328631404145152092&theme=dark',
+  },
 ]
 
 const DiscordCards = () => {
@@ -24,7 +28,7 @@ const DiscordCards = () => {
         Join the discord community, get help on homework, connect with peers and
         catch up on announcements.
       </p>
-      <motion.ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 justify-items-center">
+      <motion.ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-5 justify-items-center">
         {discordIframes.map((option, index) => (
           <motion.li key={index}>
             {' '}

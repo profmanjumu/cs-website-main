@@ -21,15 +21,15 @@ export const classOptions = [
 ]
 
 export const people = [
-  {
-    name: 'Manju',
-    position: 'Instructor',
-    image: '/Manju.jpeg',
-    portfolioLink: '/about',
-    email: 'mmuralidharanpriya@sdsu.edu',
-    discordName: '@profmanjumu',
-    officeHours: 'M: 11-1PM , Th: 3:30-5PM',
-  },
+  // {
+  // name: 'Manju',
+  //position: 'Instructor',
+  //image: '/Manju.jpeg',
+  //portfolioLink: '/about',
+  //email: 'mmuralidharanpriya@sdsu.edu',
+  //discordName: '@profmanjumu',
+  //officeHours: 'M: 11-1PM , Th: 3:30-5PM',
+  //},
   {
     name: 'Marcus',
     class: 'CS 460',
@@ -40,13 +40,12 @@ export const people = [
   },
   {
     name: 'Jaydeep',
-    class: 'CS 210',
+    class: 'CS 460',
     position: 'TA',
     image: '/Jaydeep.jpg',
     email: 'jpustake1248@sdsu.edu',
     portfolioLink: 'https://www.linkedin.com/in/jaydeep-pustake//',
   },
-
   {
     name: 'Apeksha',
     class: 'CS 210',

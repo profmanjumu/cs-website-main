@@ -5,7 +5,7 @@ import Title from '@/components/landing-page/title'
 
 export default async function Home() {
   return (
-    <main className="flex flex-col items-center md:p-24 bg-gradient-to-r from-blue-50 to-blue-200">
+    <main className="flex flex-col items-center md:p-24 bg-gradient-to-r from-blue-50 to-blue-100">
       <div className="w-full md:max-w-5xl">
         <Title />
 

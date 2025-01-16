@@ -24,35 +24,27 @@ export default function AboutPage() {
   return (
     <main className="py-16 w-full flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-50 to-blue-200">
       <div className="font-roboto_condensed p-20 text-center container">
-        <div className="flex items-center justify-center w-full p-3">
-          <Image
-            src="/Manju.jpeg"
-            alt="headshot"
-            width="192"
-            height="192"
-            className="h-24 w-24 rounded-full object-cover border-[0.2rem] border-white shadow-xl"
+        <div className="w-full">
+          <img
+            src="/websiteHeader.png"
+            alt="Descriptive Alt Text"
+            className="w-full object-cover"
           />
         </div>
-
-        <h1 className="text-3xl text-center mb-5 font-roboto_condensed text-discordText">
-          Hello! I am{' '}
-          <span className="font-dm_serif_display text-5xl text-slate-600">
-            Manju
-          </span>
-          , a CS Lecturer @ SDSU.
-        </h1>
-        <p className="mb-10 text-slate-600 font-dm_serif_display text-lg">
-          On Campus, you'll find me in GMCS 564. I'm the faculty advisor for
-          Aztec Robotics, Girls Who Code & App Development Club.
-        </p>
-        <p className="mb-10 text-slate-600 font-dm_serif_display text-lg">
-          Off campus, I conduct STEAM workshops for Sally Ride Science (UCSD),
-          in Lego Robotics, Circuit Theory & Python with Raspberry Pi &
-          Makey-Makey. You will also find me dabbling in ceramics, practicing
-          Bharathnatyam (an Indian classical dance form), building Legos or
-          enjoying a smooth Flat White and sharing a sweet pastry with my
-          spirited 8 year old son, at some local joint around town.
-        </p>
+        <div className="p-10">
+          <p className="mb-10 text-slate-600 font-dm_serif_display text-lg">
+            On Campus, you'll find me in GMCS 564. I'm the faculty advisor for
+            Aztec Robotics, Girls Who Code & App Development Club.
+          </p>
+          <p className="mb-10 text-slate-600 font-dm_serif_display text-lg">
+            Off campus, I conduct STEAM workshops for Sally Ride Science (UCSD),
+            in Lego Robotics, Circuit Theory & Python with Raspberry Pi &
+            Makey-Makey. You will also find me dabbling in ceramics, practicing
+            Bharathnatyam (an Indian classical dance form), building Legos or
+            enjoying a smooth Flat White and sharing a sweet pastry with my
+            spirited 8 year old son, at some local joint around town.
+          </p>
+        </div>
         <Separator />
         <h1 className="text-2xl mt-8 mb-4 font-roboto_condensed text-discordText text-center">
           Past Projects
@@ -60,7 +52,7 @@ export default function AboutPage() {
         {projects.map((project, index) => (
           <section
             key={index}
-            className="container p-10 rounded-lg bg-slate-700 mb-10"
+            className="container p-10 rounded-lg animate-gradient bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 mb-10"
           >
             <div className="mb-10 text-slate-100 font-roboto_condensed text-lg">
               <h3 className="text-xl font-semibold text-discordPurpleHover">
