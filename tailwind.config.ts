@@ -22,10 +22,20 @@ const config = {
       fontFamily: {
         poppins: ['var(--font-poppins)', ...fontFamily.sans],
         inter: ['var(--font-inter)', ...fontFamily.sans],
-        //roboto_condensed: ['var(--font-roboto-condensed)', ...fontFamily.sans],
-        // dm_serif_display: ['var(--font-dm-serif-display)', ...fontFamily.serif],
-        roboto_condensed: ['"Dukas"', ...fontFamily.sans],
-        dm_serif_display: ['"Glacial Indifference"', ...fontFamily.sans],
+       // roboto_condensed: ['"Anton"', ...fontFamily.sans], // Heavy & bold
+       // dm_serif_display: ['"Bebas Neue"', ...fontFamily.sans], // Modern & bold
+        oswald: ['"Oswald"', ...fontFamily.sans], // Strong & widely used
+        black_ops_one: ['"Black Ops One"', ...fontFamily.sans], // Military-style bold
+        archivo_black: ['"Archivo Black"', ...fontFamily.sans], // Modern heavy font
+        teko: ['"Teko"', ...fontFamily.sans], // Compressed bold
+        russo_one: ['"Russo One"', ...fontFamily.sans], // Thick and modern
+        chakra_petch: ['"Chakra Petch"', ...fontFamily.sans], // Tech-inspired bold
+        //  poppins: ['var(--font-poppins)', ...fontFamily.sans],
+        //  inter: ['var(--font-inter)', ...fontFamily.sans],
+          roboto_condensed: ['var(--font-roboto-condensed)', ...fontFamily.sans],
+          dm_serif_display: ['var(--font-dm-serif-display)', ...fontFamily.serif],
+        //  roboto_condensed: ['"Dukas"', ...fontFamily.sans],
+        //   dm_serif_display: ['"Glacial Indifference"', ...fontFamily.sans],
       },
       colors: {
         discordPurple: '#7289da', // Base color

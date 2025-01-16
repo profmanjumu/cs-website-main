@@ -23,7 +23,7 @@ const inter = Inter({
   variable: '--font-inter',
 })
 
-const robot_condensed = Roboto_Condensed({
+const roboto_condensed = Roboto_Condensed({
   subsets: ['latin'],
   weight: ['400'],
   variable: '--font-roboto-condensed',
@@ -50,7 +50,7 @@ export default function RootLayout({
         <head />
         <body
           className={cn(
-            `${poppins.variable} ${inter.variable} ${robot_condensed.variable} ${dm_serif_display.variable} flex flex-col min-h-screen bg-background antialiased`
+            `${poppins.variable} ${inter.variable} ${roboto_condensed.variable} ${dm_serif_display.variable} flex flex-col min-h-screen bg-background antialiased`
           )}
         >
           <Nav />

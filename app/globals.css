@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Oswald:wght@400;700&family=Black+Ops+One&family=Archivo+Black&family=Teko:wght@400;700&family=Russo+One&family=Chakra+Petch:wght@400;700&display=swap');
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -105,3 +105,4 @@
   font-weight: 400;
   font-style: normal;
 }
+
