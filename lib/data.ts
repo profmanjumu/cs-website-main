@@ -13,6 +13,11 @@ export const classOptions = [
     icon: React.createElement(FaJava, { size: '2em' }),
     href: '/cs460',
   },
+  {
+    name: 'CS 496',
+    icon: React.createElement(FaJava, { size: '2em' }),
+    href: '/cs496',
+  },
 ]
 
 export const people = [
@@ -41,22 +46,7 @@ export const people = [
     email: 'jpustake1248@sdsu.edu',
     portfolioLink: 'https://www.linkedin.com/in/jaydeep-pustake//',
   },
-  {
-    name: 'Alex',
-    class: 'CS 210',
-    position: 'TA',
-    image: '/Alex.webp',
-    email: 'astraight9409@sdsu.edu',
-    portfolioLink: 'https://alex-straight.vercel.app/',
-  },
-  {
-    name: 'Halie',
-    class: 'CS 210',
-    position: 'TA',
-    image: '/Halie.JPG',
-    email: 'hdo1153@sdsu.edu',
-    portfolioLink: 'https://github.com/ayuyamo',
-  },
+
   {
     name: 'Apeksha',
     class: 'CS 210',

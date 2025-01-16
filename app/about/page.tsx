@@ -55,7 +55,7 @@ export default function AboutPage() {
         </p>
         <Separator />
         <h1 className="text-2xl mt-8 mb-4 font-roboto_condensed text-discordText text-center">
-          Ongoing Projects
+          Past Projects
         </h1>
         {projects.map((project, index) => (
           <section

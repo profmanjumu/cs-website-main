@@ -18,9 +18,20 @@ export default async function Page({ params }: PageProps) {
   const folderId =
     params.slug === 'cs210'
       ? '1c6FZ7t5MUjFi8jiicgh1_mRd9XqkcZ8k'
-      : '149mtuEwIJry3mKvXFtN_djAzjnR96UsM'
+      : params.slug === 'cs460'
+      ? '149mtuEwIJry3mKvXFtN_djAzjnR96UsM'
+      : params.slug === 'cs496'
+      ? '1G58n5a_oTsOL7jK1HT7KBmgGqX9y68PI'
+      : 'Unknown'
 
-  const title = params.slug === 'cs210' ? 'CS 210' : 'CS 460'
+  const title =
+    params.slug === 'cs210'
+      ? 'CS 210'
+      : params.slug === 'cs460'
+      ? 'CS 460'
+      : params.slug === 'cs496'
+      ? 'CS 496'
+      : 'Unknown Course'
 
   return (
     <main className="min-h-screen">
