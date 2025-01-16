@@ -24,8 +24,8 @@ const config = {
         inter: ['var(--font-inter)', ...fontFamily.sans],
         //roboto_condensed: ['var(--font-roboto-condensed)', ...fontFamily.sans],
         // dm_serif_display: ['var(--font-dm-serif-display)', ...fontFamily.serif],
-        roboto_condensed: ['Dukas', ...fontFamily.sans],
-        dm_serif_display: ['Glacial Indifference', ...fontFamily.sans],
+        roboto_condensed: ['"Dukas"', ...fontFamily.sans],
+        dm_serif_display: ['"Glacial Indifference"', ...fontFamily.sans],
       },
       colors: {
         discordPurple: '#7289da', // Base color

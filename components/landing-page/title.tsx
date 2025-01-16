@@ -3,7 +3,7 @@ const Title = () => {
     <div>
       <div className="w-full">
         <img
-          src="/landingHeader.svg"
+          src="/landingHeader.png"
           alt="Descriptive Alt Text"
           className="w-full object-cover"
         />
