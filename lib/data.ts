@@ -14,80 +14,12 @@ export const classOptions = [
     href: '/cs460',
   },
   {
-    name: 'CS 496',
+    name: 'CS 577',
     icon: React.createElement(FaJava, { size: '2em' }),
-    href: '/cs496',
+    href: '/cs577',
   },
 ]
 
-export const people = [
-  // {
-  // name: 'Manju',
-  //position: 'Instructor',
-  //image: '/Manju.jpeg',
-  //portfolioLink: '/about',
-  //email: 'mmuralidharanpriya@sdsu.edu',
-  //discordName: '@profmanjumu',
-  //officeHours: 'M: 11-1PM , Th: 3:30-5PM',
-  //},
-  {
-    name: 'Marcus',
-    class: 'CS 460',
-    position: 'TA',
-    image: '/Marcus.jpg',
-    email: 'mchen6466@sdsu.edu',
-    portfolioLink: 'https://github.com/marcuschen001',
-  },
-  {
-    name: 'Jaydeep',
-    class: 'CS 460',
-    position: 'TA',
-    image: '/Jaydeep.jpg',
-    email: 'jpustake1248@sdsu.edu',
-    portfolioLink: 'https://www.linkedin.com/in/jaydeep-pustake//',
-  },
-  {
-    name: 'Apeksha',
-    class: 'CS 210',
-    position: 'TA',
-    image: '',
-    email: 'ajadhav7472@sdsu.edu',
-    portfolioLink: 'https://apekshajadhav.vercel.app/',
-  },
-]
-export const people3D = [
-  {
-    name: 'Brandon',
-    image: '/Brandon.jpeg',
-    portfolioLink: 'https://www.linkedin.com/in/brandongarate177/',
-    email: 'brandongarate177@gmail.com',
-  },
-  {
-    name: 'Robert',
-    image: '/Robert.jpg',
-    portfolioLink: 'https://www.linkedin.com/in/robert-ashe-a55b211a7/',
-    email: 'rashe7414@sdsu.edu',
-  },
-]
-export const peopleCWP = [
-  {
-    name: 'Alex',
-    image: '/Alex.webp',
-    email: 'astraight9409@sdsu.edu',
-    portfolioLink: 'https://alex-straight.vercel.app/',
-  },
-  {
-    name: 'Jaydeep',
-    image: '/Jaydeep.jpg',
-    email: 'jpustake1248@sdsu.edu',
-    portfolioLink: 'https://www.linkedin.com/in/jaydeep-pustake//',
-  },
-  {
-    name: 'Jaxon',
-    image: '',
-    email: 'jhill4135@sdsu.edu',
-  },
-]
 export const navLinks = [
   {
     label: 'Home',
@@ -96,10 +28,6 @@ export const navLinks = [
   {
     label: 'About Me',
     href: '/about',
-  },
-  {
-    label: 'Calendar',
-    href: '/calendar',
   },
 ]
 

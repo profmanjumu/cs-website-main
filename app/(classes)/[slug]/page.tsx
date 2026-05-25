@@ -20,7 +20,7 @@ export default async function Page({ params }: PageProps) {
       ? '1c6FZ7t5MUjFi8jiicgh1_mRd9XqkcZ8k'
       : params.slug === 'cs460'
       ? '149mtuEwIJry3mKvXFtN_djAzjnR96UsM'
-      : params.slug === 'cs496'
+      : params.slug === 'cs577'
       ? '1G58n5a_oTsOL7jK1HT7KBmgGqX9y68PI'
       : 'Unknown'
 
@@ -29,12 +29,12 @@ export default async function Page({ params }: PageProps) {
       ? 'CS 210'
       : params.slug === 'cs460'
       ? 'CS 460'
-      : params.slug === 'cs496'
-      ? 'CS 496'
+      : params.slug === 'cs577'
+      ? 'CS 577'
       : 'Unknown Course'
 
   return (
-    <main className="min-h-screen bg-gradient-to-r from-blue-50 to-blue-100">
+    <main className="min-h-screen bg-paper text-ink">
       <Title>{title}</Title>
       <div>
         <Syllabus />

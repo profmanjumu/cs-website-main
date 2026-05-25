@@ -38,24 +38,19 @@ const config = {
         //   dm_serif_display: ['"Glacial Indifference"', ...fontFamily.sans],
       },
       colors: {
-        discordPurple: '#7289da', // Base color
-        discordText: '#454fbf',
-        discordPurpleHover: '#8aa2f0', // Hover color
-        // salmon: {
-        //   1: "#E8BDB3",
-        // },
-        // darkBlue: {
-        //   1: "#2C4F74",
-        // },
-        // bgMain: {
-        //   1: "#E5DFDF",
-        // },
-        // blueGreen: {
-        //   1: "#B2C5CB",
-        // },
-        // mustard: {
-        //   1: "#D8A846",
-        // },
+        // Academic / textbook palette
+        paper: '#F5F3EE',
+        paperHover: '#EDEAE2',
+        ink: '#1C1C1A',
+        inkMuted: '#5B5B57',
+        rule: '#DCD8CE',
+        academic: '#2D5BE3',
+        academicHover: '#1E48BE',
+        // Legacy brand tokens repointed to the academic palette so existing
+        // components inherit the new look without per-file edits.
+        discordPurple: '#2D5BE3',
+        discordText: '#2D5BE3',
+        discordPurpleHover: '#1E48BE',
 
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

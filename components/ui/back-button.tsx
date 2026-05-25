@@ -9,10 +9,10 @@ import { ChevronLeftIcon } from 'lucide-react'
 const BackButton = () => {
   const pathname = usePathname()
   const { back } = useRouter()
-  if (pathname === '/' || pathname === '/calendar') return null
+  if (pathname === '/') return null
   return (
     <Button
-      className="hover:opacity-100 opacity-55 hover:underline transition-all duration-150 ml-4 fixed top-20 left-2 z-[999] bg-slate-300"
+      className="ml-4 fixed top-20 left-2 z-[999] bg-paper hover:bg-paperHover text-ink border border-rule shadow-sm transition-colors"
       onClick={() => back()}
       variant={null}
       size="icon"

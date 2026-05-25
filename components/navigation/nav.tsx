@@ -1,16 +1,11 @@
 'use client'
 import Link from 'next/link'
-import SearchDialog from '../search/search-dialog'
-import { ModeToggle } from '../ui/theme-toggle'
 import { liVariants, navLinks, ulVariants } from '@/lib/data'
 import { usePathname } from 'next/navigation'
-import { Button } from '../ui/button'
 import { useEffect, useState } from 'react'
 import { MenuIcon } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
-import Calculator from '../grade-calculator/calculator'
 import IconButton from '../ui/icon-button'
-import AboutPage from '@/app/about/page'
 
 const navVariants = {
   hidden: {
@@ -63,49 +58,44 @@ export const Nav = () => {
 
   return (
     <>
-      <nav className="fixed top-0 w-full h-16 border-b border-muted-foreground backdrop-blur-lg z-[50] font-inter bg-discordPurple">
+      <nav className="fixed top-0 w-full h-16 border-b border-rule backdrop-blur-lg z-[50] font-inter bg-paper/90">
         <div className="md:container md:max-w-4xl flex items-center w-full h-full">
-          <div className="flex items-center justify-between w-full">
+          <div className="flex items-center justify-center w-full relative">
             <div className="hidden sm:block">
-              <ul className="flex items-center gap-x-2">
+              <ul className="flex items-center gap-x-8">
                 {navLinks.map((link, index) => (
                   <li key={index}>
                     <Link
                       href={link.href}
-                      className={`ml-6 font-roboto_condensed text-gray-50 ${
+                      className={`font-roboto_condensed transition-colors ${
                         pathname === link.href
-                          ? 'underline opacity-100'
-                          : 'opacity-50 hover:opacity-100'
+                          ? 'text-academic underline underline-offset-8 decoration-2'
+                          : 'text-ink/70 hover:text-academic'
                       }`}
                     >
                       {link.label}
                     </Link>
                   </li>
                 ))}
-                <li className="ml-6">
-                  <Calculator />
-                </li>
               </ul>
             </div>
-            <div className="sm:hidden block">
+            <div className="absolute left-2 sm:hidden">
               <IconButton
                 size="icon"
                 variant="ghost"
-                className="z-[999] ml-2"
+                className="z-[999]"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
                 <MenuIcon className="z-[999]" />
               </IconButton>
             </div>
-
-            <div className="flex items-center gap-x-4 mr-2 md:mr-0"></div>
           </div>
         </div>
       </nav>
       <AnimatePresence>
         {isMenuOpen && (
           <motion.nav
-            className="h-full w-screen z-[50] fixed bg-gradient-to-r from-blue-50 to-blue-200"
+            className="h-full w-screen z-[50] fixed bg-paper"
             variants={navVariants}
             initial="hidden"
             animate="show"
@@ -115,7 +105,7 @@ export const Nav = () => {
               animate="show"
               initial="hidden"
               variants={ulVariants}
-              className="h-full flex flex-col items-center justify-evenly"
+              className="h-full flex flex-col items-center justify-evenly font-roboto_condensed text-2xl"
             >
               {navLinks.map((link, index) => (
                 <motion.li
@@ -123,7 +113,14 @@ export const Nav = () => {
                   key={index}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  <Link className="text-secondary-foreground" href={link.href}>
+                  <Link
+                    className={
+                      pathname === link.href
+                        ? 'text-academic underline underline-offset-8 decoration-2'
+                        : 'text-ink hover:text-academic transition-colors'
+                    }
+                    href={link.href}
+                  >
                     {link.label}
                   </Link>
                 </motion.li>
