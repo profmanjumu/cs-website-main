@@ -2,8 +2,6 @@
 
 import { usePathname, useRouter } from 'next/navigation'
 
-import React from 'react'
-import { Button } from './button'
 import { ChevronLeftIcon } from 'lucide-react'
 
 const BackButton = () => {
@@ -11,16 +9,15 @@ const BackButton = () => {
   const { back } = useRouter()
   if (pathname === '/') return null
   return (
-    <Button
-      className="ml-4 fixed top-20 left-2 z-[999] bg-paper hover:bg-paperHover text-ink border border-rule shadow-sm transition-colors"
+    <button
+      type="button"
       onClick={() => back()}
-      variant={null}
-      size="icon"
+      aria-label="Go back"
+      className="fixed top-14 left-3 z-[60] inline-flex items-center gap-1.5 px-3 py-1.5 bg-cream border border-rule text-ink font-courier_prime text-[10px] tracking-[0.18em] uppercase shadow-sm hover:bg-cream2 hover:border-inkMuted transition-colors"
     >
-      <span>
-        <ChevronLeftIcon />
-      </span>
-    </Button>
+      <ChevronLeftIcon size={14} />
+      Back
+    </button>
   )
 }
 

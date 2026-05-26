@@ -2,21 +2,48 @@ import React from 'react'
 import { FaDiscord, FaJava } from 'react-icons/fa'
 import { SiCplusplus } from 'react-icons/si'
 
-export const classOptions = [
+export type ClassOption = {
+  name: string
+  icon: React.ReactElement
+  href: string
+  // SDSU CS courses are 'SDSU'; Sally Ride Science / Extended Studies are 'SRS'.
+  org: 'SDSU' | 'SRS'
+  // When true, the href points at an external page (e.g. UCSD Extended Studies).
+  external?: boolean
+}
+
+export const classOptions: ClassOption[] = [
   {
     name: 'CS 210',
     icon: React.createElement(SiCplusplus, { size: '2em' }),
     href: '/cs210',
+    org: 'SDSU',
   },
   {
     name: 'CS 460',
     icon: React.createElement(FaJava, { size: '2em' }),
     href: '/cs460',
+    org: 'SDSU',
   },
   {
     name: 'CS 577',
     icon: React.createElement(FaJava, { size: '2em' }),
     href: '/cs577',
+    org: 'SDSU',
+  },
+  {
+    name: 'Lego Robotics',
+    icon: React.createElement(FaJava, { size: '2em' }),
+    href: 'https://extendedstudies.ucsd.edu/courses/elementary-school-introduction-to-robotics-using-lego-mindstorms-cse-90175',
+    org: 'SRS',
+    external: true,
+  },
+  {
+    name: '2D & 3D Game Programming',
+    icon: React.createElement(FaJava, { size: '2em' }),
+    href: 'https://extendedstudies.ucsd.edu/sally-ride-science/k12-students/sally-ride-science-academy/middle-school',
+    org: 'SRS',
+    external: true,
   },
 ]
 

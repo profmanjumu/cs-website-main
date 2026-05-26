@@ -20,37 +20,40 @@ const config = {
     },
     extend: {
       fontFamily: {
+        // Newspaper / textbook stack
+        playfair: ['var(--font-playfair)', ...fontFamily.serif],
+        courier_prime: ['var(--font-courier-prime)', 'ui-monospace', 'monospace'],
+        dm_sans: ['var(--font-dm-sans)', ...fontFamily.sans],
+        // Aliases the existing codebase already references, repointed at the
+        // new newspaper stack so existing class names inherit the new look.
+        dm_serif_display: ['var(--font-playfair)', ...fontFamily.serif],
+        roboto_condensed: ['var(--font-dm-sans)', ...fontFamily.sans],
+        // Legacy
         poppins: ['var(--font-poppins)', ...fontFamily.sans],
         inter: ['var(--font-inter)', ...fontFamily.sans],
-       // roboto_condensed: ['"Anton"', ...fontFamily.sans], // Heavy & bold
-       // dm_serif_display: ['"Bebas Neue"', ...fontFamily.sans], // Modern & bold
-        oswald: ['"Oswald"', ...fontFamily.sans], // Strong & widely used
-        black_ops_one: ['"Black Ops One"', ...fontFamily.sans], // Military-style bold
-        archivo_black: ['"Archivo Black"', ...fontFamily.sans], // Modern heavy font
-        teko: ['"Teko"', ...fontFamily.sans], // Compressed bold
-        russo_one: ['"Russo One"', ...fontFamily.sans], // Thick and modern
-        chakra_petch: ['"Chakra Petch"', ...fontFamily.sans], // Tech-inspired bold
-        //  poppins: ['var(--font-poppins)', ...fontFamily.sans],
-        //  inter: ['var(--font-inter)', ...fontFamily.sans],
-          roboto_condensed: ['var(--font-roboto-condensed)', ...fontFamily.sans],
-          dm_serif_display: ['var(--font-dm-serif-display)', ...fontFamily.serif],
-        //  roboto_condensed: ['"Dukas"', ...fontFamily.sans],
-        //   dm_serif_display: ['"Glacial Indifference"', ...fontFamily.sans],
       },
       colors: {
-        // Academic / textbook palette
-        paper: '#F5F3EE',
-        paperHover: '#EDEAE2',
-        ink: '#1C1C1A',
-        inkMuted: '#5B5B57',
-        rule: '#DCD8CE',
-        academic: '#2D5BE3',
-        academicHover: '#1E48BE',
-        // Legacy brand tokens repointed to the academic palette so existing
-        // components inherit the new look without per-file edits.
-        discordPurple: '#2D5BE3',
-        discordText: '#2D5BE3',
-        discordPurpleHover: '#1E48BE',
+        // Newspaper / textbook palette
+        cream: '#F6F1E9',
+        cream2: '#EDE7DB',
+        terra: '#B85C2A',
+        terraHover: '#8E471E',
+        olive: '#5E6B38',
+        sand: '#C49A52',
+        faint: '#D8D0C2',
+        // Semantic tokens already used across the codebase repointed to the
+        // newspaper palette so existing components pick up the new look.
+        paper: '#F6F1E9',
+        paperHover: '#EDE7DB',
+        ink: '#1A1410',
+        inkMuted: '#4A3F35',
+        rule: '#C8BFB0',
+        academic: '#B85C2A',
+        academicHover: '#8E471E',
+        // Legacy brand tokens kept for backwards compatibility.
+        discordPurple: '#B85C2A',
+        discordText: '#B85C2A',
+        discordPurpleHover: '#8E471E',
 
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

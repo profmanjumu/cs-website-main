@@ -1,70 +1,71 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Oswald:wght@400;700&family=Black+Ops+One&family=Archivo+Black&family=Teko:wght@400;700&family=Russo+One&family=Chakra+Petch:wght@400;700&display=swap');
+
 @layer base {
-  /* Light academic palette: paper / ink / academic blue */
+  /* Newspaper / textbook palette: cream paper, ink, terra cotta accent */
   :root {
-    --background: 43 26% 95%;
-    --foreground: 60 4% 11%;
+    --background: 35 47% 94%; /* #F6F1E9 cream */
+    --foreground: 24 18% 8%; /* #1A1410 ink */
 
-    --card: 0 0% 100%;
-    --card-foreground: 60 4% 11%;
+    --card: 35 47% 94%;
+    --card-foreground: 24 18% 8%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 60 4% 11%;
+    --popover: 35 47% 94%;
+    --popover-foreground: 24 18% 8%;
 
-    --primary: 225 76% 53%;
-    --primary-foreground: 43 26% 95%;
+    --primary: 19 63% 44%; /* #B85C2A terra */
+    --primary-foreground: 35 47% 94%;
 
-    --secondary: 43 18% 90%;
-    --secondary-foreground: 60 4% 11%;
+    --secondary: 34 32% 89%; /* #EDE7DB cream2 */
+    --secondary-foreground: 24 18% 8%;
 
-    --muted: 43 18% 90%;
-    --muted-foreground: 60 4% 35%;
+    --muted: 34 32% 89%;
+    --muted-foreground: 27 16% 25%; /* #4A3F35 ink2 */
 
-    --accent: 225 76% 53%;
-    --accent-foreground: 43 26% 95%;
+    --accent: 19 63% 44%;
+    --accent-foreground: 35 47% 94%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 43 26% 95%;
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 35 47% 94%;
 
-    --border: 43 12% 82%;
-    --input: 43 12% 82%;
-    --ring: 225 76% 53%;
+    --border: 36 21% 73%; /* #C8BFB0 rule */
+    --input: 36 21% 73%;
+    --ring: 19 63% 44%;
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
   }
 
-  /* Dark academic variant: moody near-black / paper text / soft blue */
+  /* Dark variant — kept for the ThemeProvider scaffold but the site
+     intentionally ships light by default. */
   .dark {
-    --background: 240 9% 9%;
-    --foreground: 60 9% 93%;
+    --background: 24 18% 8%;
+    --foreground: 35 47% 94%;
 
-    --card: 240 9% 11%;
-    --card-foreground: 60 9% 93%;
+    --card: 24 18% 10%;
+    --card-foreground: 35 47% 94%;
 
-    --popover: 240 9% 11%;
-    --popover-foreground: 60 9% 93%;
+    --popover: 24 18% 10%;
+    --popover-foreground: 35 47% 94%;
 
-    --primary: 221 83% 65%;
-    --primary-foreground: 240 9% 9%;
+    --primary: 19 63% 55%;
+    --primary-foreground: 24 18% 8%;
 
-    --secondary: 240 6% 16%;
-    --secondary-foreground: 60 9% 93%;
+    --secondary: 24 12% 14%;
+    --secondary-foreground: 35 47% 94%;
 
-    --muted: 240 6% 16%;
-    --muted-foreground: 60 6% 65%;
+    --muted: 24 12% 14%;
+    --muted-foreground: 36 21% 73%;
 
-    --accent: 221 83% 65%;
-    --accent-foreground: 240 9% 9%;
+    --accent: 19 63% 55%;
+    --accent-foreground: 24 18% 8%;
 
     --destructive: 0 62% 45%;
-    --destructive-foreground: 60 9% 93%;
+    --destructive-foreground: 35 47% 94%;
 
-    --border: 240 6% 20%;
-    --input: 240 6% 20%;
-    --ring: 221 83% 65%;
+    --border: 24 12% 20%;
+    --input: 24 12% 20%;
+    --ring: 19 63% 55%;
   }
 }
 
@@ -72,9 +73,137 @@
   * {
     @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground;
+  html {
+    background: hsl(var(--background));
   }
+  body {
+    @apply bg-background text-foreground font-dm_sans antialiased;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Newspaper / textbook component utilities
+   --------------------------------------------------------------------------- */
+@layer components {
+  /* Section tags — small uppercase Courier labels above each block */
+  .section-tag {
+    @apply font-courier_prime text-[10px] tracking-[0.2em] uppercase text-terra
+           border-b border-terra pb-1.5 mb-3.5 inline-block;
+  }
+
+  /* Eyebrow — like section-tag but olive and no border */
+  .eyebrow {
+    @apply font-courier_prime text-[10px] tracking-[0.2em] uppercase text-olive;
+  }
+
+  /* Meta — tiny Courier metadata, used in masthead and footer */
+  .meta {
+    @apply font-courier_prime text-[10px] tracking-[0.18em] uppercase text-inkMuted;
+  }
+
+  /* Single thin horizontal ruling */
+  .ruling {
+    @apply border-t border-rule my-4;
+    border-top-width: 1px;
+  }
+
+  /* Heavy double-rule used as section dividers */
+  .ruling-double {
+    @apply my-5;
+    border-top: 3px double #1a1410;
+  }
+
+  /* Buttons */
+  .btn-ink {
+    @apply font-courier_prime text-[10px] tracking-[0.18em] uppercase
+           bg-ink text-cream px-6 py-3 inline-block no-underline
+           transition-colors hover:bg-terra;
+  }
+
+  .btn-ghost {
+    @apply font-courier_prime text-[10px] tracking-[0.18em] uppercase
+           bg-transparent text-ink border border-rule px-6 py-3 inline-block
+           no-underline transition-colors hover:border-inkMuted;
+  }
+
+  /* Pill chips */
+  .pill {
+    @apply font-courier_prime text-[10px] tracking-[0.1em] uppercase
+           bg-cream2 border border-rule text-inkMuted px-2.5 py-[3px]
+           inline-block mr-0.5 my-0.5;
+  }
+  .pill-terra {
+    @apply bg-terra border-terra text-cream;
+  }
+  .pill-olive {
+    @apply bg-olive border-olive text-cream;
+  }
+
+  /* Course row — newspaper-style list item */
+  .course-row {
+    @apply py-3 border-b border-faint transition-[padding] hover:pl-1.5;
+  }
+  .course-row:first-of-type {
+    @apply border-t border-faint;
+  }
+  .course-code {
+    @apply font-courier_prime text-[10px] font-bold tracking-[0.15em] text-terra;
+  }
+  .course-title-sm {
+    @apply font-playfair text-[15px] text-ink my-0.5;
+  }
+  .course-meta-sm {
+    @apply font-courier_prime text-[10px] text-inkMuted;
+  }
+
+  /* Office-hours / mini-stat block */
+  .oh-block {
+    @apply bg-cream2 border border-rule p-3.5;
+  }
+  .oh-row {
+    @apply flex justify-between font-courier_prime text-[11px] py-1.5
+           border-b border-faint text-inkMuted last:border-b-0;
+  }
+  .oh-row strong {
+    @apply text-ink font-bold;
+  }
+
+  /* Drop cap for opening hero paragraph */
+  .drop-cap::first-letter {
+    @apply font-playfair font-black float-left text-terra;
+    font-size: 66px;
+    line-height: 0.72;
+    margin: 6px 8px 0 0;
+  }
+
+  /* Press item rows */
+  .press-item {
+    @apply py-2.5 border-b border-faint last:border-b-0;
+  }
+  .press-item:first-of-type {
+    @apply border-t border-faint;
+  }
+  .press-outlet {
+    @apply font-courier_prime text-[10px] tracking-[0.12em] uppercase text-olive;
+  }
+  .press-hed {
+    @apply font-playfair italic text-[13px] leading-snug text-ink mt-0.5;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-fade-up {
+  animation: fadeUp 0.65s ease both;
 }
 
 @keyframes gradient {
@@ -93,18 +222,3 @@
   background-size: 200% 200%;
   animation: gradient 6s ease infinite;
 }
-
-@font-face {
-  font-family: 'Dukas';
-  src: url('/fonts/DukasCFBoldRegular.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Glacial Indifference';
-  src: url('/fonts/GlacialIndifference-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
-

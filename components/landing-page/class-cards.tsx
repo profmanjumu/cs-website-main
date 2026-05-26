@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 const ClassCards = () => {
   return (
-    <section className="mb-20 container">
+    <section className="container w-full">
       <motion.ul className="flex sm:flex-row flex-col justify-center gap-4 w-full">
         {classOptions.map((option, index) => (
           <motion.li className="w-full" key={index}>
