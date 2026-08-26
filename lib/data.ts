@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaDiscord, FaJava } from 'react-icons/fa'
+import { FaJava } from 'react-icons/fa'
 import { SiCplusplus } from 'react-icons/si'
 
 export type ClassOption = {
@@ -17,6 +17,12 @@ export const classOptions: ClassOption[] = [
     name: 'CS 210',
     icon: React.createElement(SiCplusplus, { size: '2em' }),
     href: '/cs210',
+    org: 'SDSU',
+  },
+  {
+    name: 'CS 250',
+    icon: React.createElement(FaJava, { size: '2em' }),
+    href: '/cs250',
     org: 'SDSU',
   },
   {
@@ -47,10 +53,81 @@ export const classOptions: ClassOption[] = [
   },
 ]
 
+/** Tab / display order on the SDSU hub — ascending course number. */
+export const sdsuTabOrder = ['CS 210', 'CS 250', 'CS 460', 'CS 577'] as const
+
+/**
+ * When false, UCSD / Sally Ride outreach UI is hidden from nav, home,
+ * hubs, and About. Data + `/ucsd` route remain in the codebase for later.
+ */
+export const showUcsdUi = false
+
+/** Display titles + schedule lines for course rows (shared by hubs). */
+export const courseMeta: Record<
+  string,
+  { title: string; meta: string; image?: string; description?: string }
+> = {
+  'CS 210': { title: 'Data Structures', meta: 'Tu / Th \u00b7 Fall 2026' },
+  'CS 250': {
+    title: 'Coming soon',
+    meta: 'Schedule TBD',
+    description: 'Course details coming soon. See CONTENT_TODO.md.',
+  },
+  'CS 460': { title: 'Algorithms', meta: 'Tu / Th \u00b7 Fall 2026' },
+  'CS 577': { title: 'Data Science', meta: 'Mon-Fri \u00b7 Summer 2026' },
+  'Lego Robotics': {
+    title: 'Upper Elementary School',
+    meta: 'Jul 20 \u2013 Jul 24 \u00b7 UCSD Extended Studies',
+    image: '/ManjuTeach.jpg',
+    description:
+      'Students build robots using Lego Mindstorms and explore sensors, motors, and coding — including an app joystick for battle bots.',
+  },
+  '2D & 3D Game Programming': {
+    title: 'Middle School',
+    meta: 'Jul 6 \u2013 Jul 10 \u00b7 Sally Ride Science Academy',
+    image: '/KidsLearn.jpg',
+    description:
+      'Hands-on robotics and programming camps that introduce middle-school students to STEM in a fun, project-based environment.',
+  },
+}
+
+/**
+ * Discord server widget IDs keyed by class slug.
+ * Values restored from an earlier site build — verify in Discord server settings.
+ * Leave empty string to show the placeholder panel (see CONTENT_TODO.md).
+ */
+export const discordWidgetIds: Record<string, string> = {
+  cs210: '1183649805415743528',
+  cs250: '',
+  cs460: '1183649881026461747',
+  cs577: '1328631404145152092',
+}
+
+/** Home hub description copy (relocated from the previous hero strip). */
+export const homeDescription = {
+  deck: 'A classroom where assignments have side quests.',
+  body: [
+    'Every course here is built around one idea: the best way to understand a system is to build one. No toy problems. Students design, argue, implement, and defend real solutions to real constraints and walk away with something to show for it.',
+    "Whether it's tracing Dijkstra's algorithm on a weighted graph, benchmarking data structures head-to-head, or finding a story buried in the dataset the work is the learning.",
+  ],
+} as const
+
+/** UCSD hub GitHub Pages embed URLs — fill in via CONTENT_TODO.md */
+export const ucsdEmbedUrls: { label: string; url: string }[] = [
+  // { label: 'Program overview', url: 'https://...' },
+]
+
 export const navLinks = [
   {
     label: 'Home',
     href: '/',
+  },
+  // SDSU hub — home screen CTA only, not in top nav
+  // Kept in code — gated by showUcsdUi in the Nav component
+  {
+    label: 'UCSD',
+    href: '/ucsd',
+    ucsdOnly: true,
   },
   {
     label: 'About Me',

@@ -3,10 +3,10 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { MenuIcon, X } from 'lucide-react'
+import { Home, MenuIcon, X } from 'lucide-react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { liVariants, navLinks, ulVariants } from '@/lib/data'
+import { liVariants, navLinks, showUcsdUi, ulVariants } from '@/lib/data'
 
 const navVariants = {
   hidden: { y: '-100vh', opacity: 0 },
@@ -41,46 +41,63 @@ export const Nav = () => {
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(`${href}/`)
+
+  const visibleLinks = navLinks.filter(
+    (link) => showUcsdUi || !('ucsdOnly' in link && link.ucsdOnly)
+  )
+
+  const renderNavLabel = (link: (typeof navLinks)[number]) => {
+    if (link.href === '/') {
+      return <Home size={18} aria-hidden="true" />
+    }
+    return link.label
+  }
+
   return (
     <>
-      <nav className="sticky top-0 z-50 w-full bg-ink flex justify-center">
-        {/* Desktop links */}
+      <nav className="sticky top-0 z-50 w-full bg-ink flex justify-end">
         <ul className="hidden sm:flex">
-          {navLinks.map((link) => {
-            const active = pathname === link.href
+          {visibleLinks.map((link) => {
+            const active = isActive(link.href)
+            const isHome = link.href === '/'
             return (
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  aria-label={isHome ? 'Home' : undefined}
+                  title={isHome ? 'Home' : undefined}
                   className={[
-                    'font-courier_prime text-[10px] tracking-[0.18em] uppercase',
-                    'px-5 py-3 inline-block border-r border-white/5',
+                    'font-bricolage text-sm font-semibold',
+                    isHome
+                      ? 'px-4 py-3 inline-flex items-center justify-center'
+                      : 'px-5 py-3 inline-block',
+                    'border-l border-white/5',
                     'transition-colors duration-200',
                     active
-                      ? 'bg-terra text-cream'
-                      : 'text-cream/60 hover:bg-terra hover:text-cream',
+                      ? 'bg-mulberry text-silverSoft'
+                      : 'text-silver/70 hover:bg-mulberry hover:text-silverSoft',
                   ].join(' ')}
                 >
-                  {link.label}
+                  {renderNavLabel(link)}
                 </Link>
               </li>
             )
           })}
         </ul>
 
-        {/* Mobile hamburger */}
         <button
           type="button"
           onClick={() => setIsMenuOpen((v) => !v)}
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-          className="sm:hidden absolute left-2 top-1.5 z-[60] p-2 text-cream/80 hover:text-cream"
+          className="sm:hidden absolute left-2 top-1.5 z-[60] p-2 text-silver/80 hover:text-silverSoft"
         >
-          {isMenuOpen ? <MenuIcon size={20} /> : <MenuIcon size={20} />}
+          <MenuIcon size={20} />
         </button>
-        {/* Mobile wordmark center */}
         <Link
           href="/"
-          className="sm:hidden font-courier_prime text-[10px] tracking-[0.2em] uppercase text-cream/80 py-3"
+          className="sm:hidden font-bricolage text-sm font-semibold text-silver/80 py-3"
         >
           Manju&rsquo;s Classroom
         </Link>
@@ -99,7 +116,7 @@ export const Nav = () => {
               type="button"
               onClick={() => setIsMenuOpen(false)}
               aria-label="Close menu"
-              className="absolute right-4 top-4 p-2 text-cream/70 hover:text-cream"
+              className="absolute right-4 top-4 p-2 text-silver/70 hover:text-silverSoft"
             >
               <X size={22} />
             </button>
@@ -109,8 +126,8 @@ export const Nav = () => {
               variants={ulVariants}
               className="h-full flex flex-col items-center justify-center gap-8"
             >
-              {navLinks.map((link) => {
-                const active = pathname === link.href
+              {visibleLinks.map((link) => {
+                const active = isActive(link.href)
                 return (
                   <motion.li
                     variants={liVariants}
@@ -119,12 +136,15 @@ export const Nav = () => {
                   >
                     <Link
                       href={link.href}
+                      aria-label={link.href === '/' ? 'Home' : undefined}
                       className={[
-                        'font-courier_prime tracking-[0.2em] uppercase text-lg',
-                        active ? 'text-terra' : 'text-cream/80 hover:text-terra',
+                        'font-bricolage font-semibold text-lg inline-flex items-center gap-2',
+                        active
+                          ? 'text-mulberry'
+                          : 'text-silver/80 hover:text-mulberry',
                       ].join(' ')}
                     >
-                      {link.label}
+                      {renderNavLabel(link)}
                     </Link>
                   </motion.li>
                 )

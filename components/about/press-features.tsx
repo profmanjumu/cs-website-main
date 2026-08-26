@@ -52,23 +52,23 @@ const PressFeatures = () => {
 
   return (
     <section className="mt-20">
-      <span className="section-tag">Outreach &amp; Press</span>
-      <h2 className="font-playfair font-black text-ink text-3xl sm:text-4xl mb-6">
-        Featured in
+      <span className="section-tag">In media</span>
+      <h2 className="font-bricolage font-extrabold text-ink text-3xl sm:text-4xl mb-6">
+        In media
       </h2>
 
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-px bg-rule border border-rule">
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {pressFeatures.map(
           ({ outlet, headline, description, date, url, image }) => (
-            <li key={`${outlet}-${headline}`} className="bg-cream">
+            <li key={`${outlet}-${headline}`} className="bg-silverSoft border border-plum/30">
               <a
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col overflow-hidden transition-colors hover:bg-cream2"
+                className="group flex h-full flex-col overflow-hidden transition-colors hover:border-mulberry"
               >
                 {image && (
-                  <div className="relative w-full aspect-video overflow-hidden bg-cream2 border-b border-rule">
+                  <div className="relative w-full aspect-video overflow-hidden bg-slateRose/30 border-b border-plum/20">
                     <Image
                       src={image.src}
                       alt={image.alt}
@@ -85,24 +85,24 @@ const PressFeatures = () => {
                     <ExternalLink
                       size={14}
                       aria-hidden="true"
-                      className="shrink-0 text-inkMuted transition-colors group-hover:text-terra"
+                      className="shrink-0 text-inkMuted transition-colors group-hover:text-mulberry"
                     />
                   </div>
 
                   <hr className="ruling" />
 
-                  <h3 className="font-playfair italic text-lg leading-snug text-ink mb-3">
+                  <h3 className="font-lora italic text-lg leading-snug text-ink mb-3">
                     {headline}
                   </h3>
 
                   {description && (
-                    <p className="font-playfair text-[15px] leading-relaxed text-inkMuted flex-1">
+                    <p className="font-lora text-[15px] leading-relaxed text-inkMuted flex-1">
                       {description}
                     </p>
                   )}
 
                   {date && (
-                    <time className="mt-4 font-courier_prime text-[10px] tracking-[0.15em] uppercase text-inkMuted">
+                    <time className="mt-4 font-bricolage text-xs font-medium text-inkMuted">
                       {date}
                     </time>
                   )}

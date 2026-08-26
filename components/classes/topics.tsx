@@ -9,10 +9,13 @@ import { ExternalLinkIcon } from 'lucide-react'
 
 export type TopicsProps = {
   topics: TopicsType[]
+  /** Base path for topic links (e.g. `/cs210`). Defaults to current pathname. */
+  basePath?: string
 }
 
-export const Topics = ({ topics }: TopicsProps) => {
+export const Topics = ({ topics, basePath }: TopicsProps) => {
   const pathname = usePathname()
+  const root = basePath ?? pathname
 
   return (
     <motion.ul
@@ -28,7 +31,7 @@ export const Topics = ({ topics }: TopicsProps) => {
           className="course-row group"
         >
           <Link
-            href={`${pathname}/${encodeURI(link.name.split(' ').join('-'))}/${link.id}`}
+            href={`${root}/${encodeURI(link.name.split(' ').join('-'))}/${link.id}`}
             className="flex items-center justify-between gap-4"
           >
             <div>

@@ -20,40 +20,41 @@ const config = {
     },
     extend: {
       fontFamily: {
-        // Newspaper / textbook stack
-        playfair: ['var(--font-playfair)', ...fontFamily.serif],
-        courier_prime: ['var(--font-courier-prime)', 'ui-monospace', 'monospace'],
-        dm_sans: ['var(--font-dm-sans)', ...fontFamily.sans],
-        // Aliases the existing codebase already references, repointed at the
-        // new newspaper stack so existing class names inherit the new look.
-        dm_serif_display: ['var(--font-playfair)', ...fontFamily.serif],
-        roboto_condensed: ['var(--font-dm-sans)', ...fontFamily.sans],
-        // Legacy
-        poppins: ['var(--font-poppins)', ...fontFamily.sans],
-        inter: ['var(--font-inter)', ...fontFamily.sans],
+        bricolage: ['var(--font-bricolage)', ...fontFamily.sans],
+        lora: ['var(--font-lora)', ...fontFamily.serif],
+        playfair: ['var(--font-lora)', ...fontFamily.serif],
+        courier_prime: ['var(--font-bricolage)', ...fontFamily.sans],
+        dm_sans: ['var(--font-lora)', ...fontFamily.serif],
+        dm_serif_display: ['var(--font-bricolage)', ...fontFamily.sans],
+        roboto_condensed: ['var(--font-bricolage)', ...fontFamily.sans],
       },
       colors: {
-        // Newspaper / textbook palette
-        cream: '#F6F1E9',
-        cream2: '#EDE7DB',
-        terra: '#B85C2A',
-        terraHover: '#8E471E',
-        olive: '#5E6B38',
-        sand: '#C49A52',
-        faint: '#D8D0C2',
-        // Semantic tokens already used across the codebase repointed to the
-        // newspaper palette so existing components pick up the new look.
-        paper: '#F6F1E9',
-        paperHover: '#EDE7DB',
+        // Dusty Mulberry / Stormy Blue palette
+        mulberry: '#A67CA4',
+        mulberryHover: '#8F688D',
+        stormy: '#6A8CA9',
+        plum: '#857A9E',
+        slateRose: '#C9A9B8',
+        silver: '#CBD3D8',
+        silverSoft: '#E4E9EC',
+        // Semantic aliases (legacy names keep working)
+        cream: '#CBD3D8',
+        cream2: '#E4E9EC',
+        terra: '#A67CA4',
+        terraHover: '#8F688D',
+        olive: '#6A8CA9',
+        sand: '#C9A9B8',
+        faint: '#B8C2C9',
+        paper: '#CBD3D8',
+        paperHover: '#E4E9EC',
         ink: '#1A1410',
-        inkMuted: '#4A3F35',
-        rule: '#C8BFB0',
-        academic: '#B85C2A',
-        academicHover: '#8E471E',
-        // Legacy brand tokens kept for backwards compatibility.
-        discordPurple: '#B85C2A',
-        discordText: '#B85C2A',
-        discordPurpleHover: '#8E471E',
+        inkMuted: '#4A4550',
+        rule: '#857A9E',
+        academic: '#A67CA4',
+        academicHover: '#8F688D',
+        discordPurple: '#A67CA4',
+        discordText: '#A67CA4',
+        discordPurpleHover: '#8F688D',
 
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',

@@ -2,32 +2,32 @@
 import { usePathname } from 'next/navigation'
 
 const H3 = ({ children }: { children: React.ReactNode }) => (
-  <h3 className="font-courier_prime text-[10px] tracking-[0.18em] uppercase text-terra border-b border-terra pb-1.5 mt-7 mb-3">
+  <h3 className="font-bricolage text-sm font-semibold text-terra border-b border-terra pb-1.5 mt-7 mb-3">
     {children}
   </h3>
 )
 
 const P = ({ children }: { children: React.ReactNode }) => (
-  <p className="font-playfair text-[15px] leading-[1.75] text-inkMuted mb-4">
+  <p className="font-lora text-[15px] leading-[1.75] text-inkMuted mb-4">
     {children}
   </p>
 )
 
 const UL = ({ children }: { children: React.ReactNode }) => (
-  <ul className="font-playfair text-[15px] leading-[1.75] text-inkMuted mb-4 list-disc pl-5 marker:text-terra">
+  <ul className="font-lora text-[15px] leading-[1.75] text-inkMuted mb-4 list-disc pl-5 marker:text-terra">
     {children}
   </ul>
 )
 
-export default function Syllabus() {
+export default function Syllabus({ courseSlug }: { courseSlug?: string }) {
   const pathName = usePathname()
   const parts = pathName.split('/')
-  const course = parts[1]
+  const course = (courseSlug ?? parts[1]).toLowerCase()
 
   return (
     <section>
       <span className="section-tag">Syllabus &middot; Spring &rsquo;25</span>
-      <h2 className="font-playfair font-black text-ink text-3xl sm:text-4xl mt-2 mb-6">
+      <h2 className="font-bricolage font-extrabold text-ink text-3xl sm:text-4xl mt-2 mb-6">
         Course Information
       </h2>
 
@@ -290,6 +290,11 @@ export default function Syllabus() {
           <hr className="ruling-double" />
         </div>
       ) : course === 'cs577' ? (
+        <div>
+          <P>Syllabus details coming soon.</P>
+          <hr className="ruling-double" />
+        </div>
+      ) : course === 'cs250' ? (
         <div>
           <P>Syllabus details coming soon.</P>
           <hr className="ruling-double" />

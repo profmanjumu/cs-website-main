@@ -90,11 +90,11 @@ const HeroStrip = () => {
       {/* RIGHT — hero copy + affiliations */}
       <div className="py-9 md:px-9 flex flex-col justify-center">
        
-        <h2 className="font-playfair font-black text-ink leading-[1.05] tracking-[-1px] text-[30px] sm:text-[38px] lg:text-[52px] mb-4 anim-fade-up">
+        <h2 className="font-bricolage font-extrabold text-ink leading-[1.05] tracking-[-1px] text-[30px] sm:text-[38px] lg:text-[52px] mb-4 anim-fade-up">
           Building Systems <br />
           that <em className="italic text-terra">actually matter</em>
         </h2>
-        <p className="font-playfair italic text-[16px] text-inkMuted leading-[1.65] border-l-[3px] border-terra pl-4 mb-5 anim-fade-up">
+        <p className="font-lora italic text-[16px] text-inkMuted leading-[1.65] border-l-[3px] border-terra pl-4 mb-5 anim-fade-up">
           A classroom where assignments have side quests.
         </p>
         <hr className="ruling" />

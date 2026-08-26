@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { Courier_Prime, DM_Sans, Playfair_Display } from 'next/font/google'
+import { Bricolage_Grotesque, Lora } from 'next/font/google'
 import './globals.css'
 import { Nav } from '@/components/navigation/nav'
+import Footer from '@/components/landing-page/footer'
 import { cn } from '@/lib/utils'
 import BackButton from '@/components/ui/back-button'
 
@@ -10,24 +11,17 @@ export const metadata: Metadata = {
   description: 'SDSU Computer Science — Manju Muralidharan Priya',
 }
 
-const playfair = Playfair_Display({
+const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
-  weight: ['400', '700', '900'],
-  style: ['normal', 'italic'],
-  variable: '--font-playfair',
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-bricolage',
 })
 
-const courierPrime = Courier_Prime({
+const lora = Lora({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['400', '500', '600', '700'],
   style: ['normal', 'italic'],
-  variable: '--font-courier-prime',
-})
-
-const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500'],
-  variable: '--font-dm-sans',
+  variable: '--font-lora',
 })
 
 export default function RootLayout({
@@ -44,15 +38,15 @@ export default function RootLayout({
       <head />
       <body
         className={cn(
-          playfair.variable,
-          courierPrime.variable,
-          dmSans.variable,
-          'flex flex-col min-h-screen bg-cream text-ink antialiased font-dm_sans'
+          bricolage.variable,
+          lora.variable,
+          'flex flex-col min-h-screen bg-silver text-ink antialiased font-lora'
         )}
       >
         <Nav />
         <BackButton />
         {children}
+        <Footer />
       </body>
     </html>
   )

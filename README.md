@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Manju's Classroom
+
+Next.js site for SDSU Computer Science courses and UCSD / Sally Ride Science outreach.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Homepage hold (404 on `/`)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The live homepage is hidden by default:
 
-## Learn More
+- **Static hosts** serving repo root: deploy [`index.html`](index.html) — a standalone 404 page.
+- **Next.js** (`next start` / Vercel): `/` calls `notFound()` unless `SITE_HOLD=false`.
 
-To learn more about Next.js, take a look at the following resources:
+For local development, add to `.env.local`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+SITE_HOLD=false
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+When you are ready to launch the real homepage, set `SITE_HOLD=false` on your host (or remove the hold).
 
-## Deploy on Vercel
+## Design
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Wireframe hub layout (Home → SDSU / UCSD) with a Dusty Mulberry / Stormy Blue / Silver Mist palette. See [`CONTENT_TODO.md`](CONTENT_TODO.md) for anything that still needs real links, Discord widget IDs, club logos, or embed URLs.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Content fill-ins
+
+**Do not invent URLs or IDs.** Track open items in:
+
+→ **[CONTENT_TODO.md](CONTENT_TODO.md)**
+
+## Stack
+
+- Next.js App Router
+- Tailwind CSS
+- Google Drive API for class topic folders (requires `GOOGLE_APPLICATION_CREDENTIALS` in `.env`)
