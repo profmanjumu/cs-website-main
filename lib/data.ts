@@ -67,14 +67,22 @@ export const courseMeta: Record<
   string,
   { title: string; meta: string; image?: string; description?: string }
 > = {
-  'CS 210': { title: 'Data Structures', meta: 'Tu / Th \u00b7 Fall 2026' },
-  'CS 250': {
-    title: 'Coming soon',
-    meta: 'Schedule TBD',
-    description: 'Course details coming soon. See CONTENT_TODO.md.',
+  'CS 210': {
+    title: 'Data Structures',
+    meta: 'Tu / Th \u00b7 4:00\u20135:15 PM \u00b7 GMCS 425',
   },
-  'CS 460': { title: 'Algorithms', meta: 'Tu / Th \u00b7 Fall 2026' },
-  'CS 577': { title: 'Data Science', meta: 'Mon-Fri \u00b7 Summer 2026' },
+  'CS 250': {
+    title: 'Intro to Software Systems',
+    meta: 'Tu / Th \u00b7 2:00\u20133:15 PM \u00b7 AH 3110',
+  },
+  'CS 460': {
+    title: 'Algorithms',
+    meta: 'Tu / Th \u00b7 7:00\u20138:15 PM \u00b7 GMCS 314',
+  },
+  'CS 577': {
+    title: 'Data Science',
+    meta: 'Tu / Th \u00b7 11:00 AM\u201312:15 PM \u00b7 GMCS 425; Tu / Th \u00b7 5:30\u20136:45 PM \u00b7 SH 101',
+  },
   'Lego Robotics': {
     title: 'Upper Elementary School',
     meta: 'Jul 20 \u2013 Jul 24 \u00b7 Extended Studies',
@@ -97,10 +105,10 @@ export const courseMeta: Record<
  * Leave empty string to show the placeholder panel (see CONTENT_TODO.md).
  */
 export const discordWidgetIds: Record<string, string> = {
-  cs210: '1183649805415743528',
-  cs250: '',
-  cs460: '1183649881026461747',
-  cs577: '1328631404145152092',
+  cs210: '1536536040838402090',
+  cs250: '1536561068078403646',
+  cs460: '1536551449234772009',
+  cs577: '1536544192849911868',
 }
 
 /** Home hub description copy (relocated from the previous hero strip). */

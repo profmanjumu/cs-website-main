@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import { ContactTiles } from '@/components/shell/contact-tiles'
-import { sdsuCourseDisplay } from '@/components/hubs/course-display'
+import { metaLines, sdsuCourseDisplay } from '@/components/hubs/course-display'
 import { homeDescription, sdsuTabOrder } from '@/lib/data'
 
 const courseRows = sdsuTabOrder.map((name) => ({
@@ -25,7 +25,7 @@ export default function HomePage() {
             <Link
               key={row.name}
               href={`/sdsu?course=${row.param}`}
-              className="rowlink grid grid-cols-[92px_1fr] sm:grid-cols-[92px_1fr_auto] gap-[18px] items-baseline py-[11px] no-underline shadow-[inset_0_-1px_0_rgba(233,233,237,0.16)] hover:text-inherit"
+              className="rowlink grid grid-cols-[92px_1fr] sm:grid-cols-[92px_1fr_auto] gap-[18px] items-start sm:items-baseline py-[11px] no-underline shadow-[inset_0_-1px_0_rgba(233,233,237,0.16)] hover:text-inherit"
             >
               <span className="font-body font-normal text-[16px] text-vanilla">
                 {row.name}
@@ -33,8 +33,12 @@ export default function HomePage() {
               <span className="font-display font-normal text-[21px] text-band">
                 {row.title}
               </span>
-              <span className="text-[13px] text-paper/70 col-span-2 sm:col-span-1">
-                {row.meta}
+              <span className="text-[13px] text-paper/70 col-span-2 sm:col-span-1 sm:text-right">
+                {metaLines(row.meta).map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
               </span>
             </Link>
           ))}

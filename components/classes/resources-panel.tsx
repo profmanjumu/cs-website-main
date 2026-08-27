@@ -17,7 +17,7 @@ export default function ResourcesPanel({ slug }: ResourcesPanelProps) {
   if (!links || Object.keys(links).length === 0) {
     return (
       <p className="font-body font-light text-[14px] text-cadet m-0">
-        Resources for this course are not listed yet. See CONTENT_TODO.md.
+        No resources Added
       </p>
     )
   }

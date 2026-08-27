@@ -31,7 +31,7 @@ export default function Syllabus({ courseSlug }: { courseSlug?: string }) {
           <H3>Class Times</H3>
           <UL>
             <li>Tuesday &amp; Thursday</li>
-            <li>7:00 PM &ndash; 8:15 PM @ LSS 365, TA: Apeksha</li>
+            <li>4:00 PM &ndash; 5:15 PM @ GMCS 425</li>
           </UL>
 
           <H3>Important Dates</H3>
@@ -166,8 +166,7 @@ export default function Syllabus({ courseSlug }: { courseSlug?: string }) {
           <H3>Class Times</H3>
           <UL>
             <li>Tuesday &amp; Thursday</li>
-            <li>12:30 PM &ndash; 1:45 PM @ OP 201, TA: Marcus</li>
-            <li>5:30 PM &ndash; 6:45 PM @ LH 343, TA: JD</li>
+            <li>7:00 PM &ndash; 8:15 PM @ GMCS 314</li>
           </UL>
 
           <H3>Important Dates</H3>
@@ -284,10 +283,21 @@ export default function Syllabus({ courseSlug }: { courseSlug?: string }) {
         </div>
       ) : course === 'cs577' ? (
         <div>
+          <H3>Class Times</H3>
+          <UL>
+            <li>Tuesday &amp; Thursday</li>
+            <li>11:00 AM &ndash; 12:15 PM @ GMCS 425</li>
+            <li>5:30 PM &ndash; 6:45 PM @ SH 101</li>
+          </UL>
           <P>Syllabus details coming soon.</P>
         </div>
       ) : course === 'cs250' ? (
         <div>
+          <H3>Class Times</H3>
+          <UL>
+            <li>Tuesday &amp; Thursday</li>
+            <li>2:00 PM &ndash; 3:15 PM @ AH 3110</li>
+          </UL>
           <P>Syllabus details coming soon.</P>
         </div>
       ) : (

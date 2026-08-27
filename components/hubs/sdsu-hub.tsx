@@ -7,6 +7,7 @@ import ClassTabs from '@/components/classes/class-tabs'
 import { HubTabBar } from '@/components/hubs/hub-tab-bar'
 import {
   courseNameFromParam,
+  metaLines,
   sdsuCourseDisplay,
 } from '@/components/hubs/course-display'
 import { TopicsType } from '@/lib/types'
@@ -71,9 +72,13 @@ export default function SdsuHub({ courses, initialCourse }: SdsuHubProps) {
         <p className="font-display font-light text-[26px] text-vanilla mt-2.5 mb-0">
           {display?.title ?? active.title}
         </p>
-        <p className="font-body font-light text-[13px] text-cadet mt-1 mb-0">
-          {display?.meta ?? 'Tu / Th \u00b7 Fall 2026'}
-        </p>
+        <div className="font-body font-light text-[13px] text-cadet mt-1">
+          {metaLines(display?.meta).map((line) => (
+            <p key={line} className="m-0">
+              {line}
+            </p>
+          ))}
+        </div>
       </header>
 
       <ClassTabs
