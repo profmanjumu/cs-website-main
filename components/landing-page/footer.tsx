@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { InstagramLogo, LinkedinLogo } from '@phosphor-icons/react
+import { InstagramLogo, LinkedinLogo } from '@phosphor-icons/react'
 
 const socialLinks = [
   {
