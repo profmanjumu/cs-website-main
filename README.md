@@ -9,22 +9,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
-### Homepage hold (404 on `/`)
-
-The live homepage is hidden by default:
-
-- **Static hosts** serving repo root: deploy [`index.html`](index.html) — a standalone 404 page.
-- **Next.js** (`next start` / Vercel): `/` calls `notFound()` unless `SITE_HOLD=false`.
-
-For local development, add to `.env.local`:
-
-```bash
-SITE_HOLD=false
-```
-
-When you are ready to launch the real homepage, set `SITE_HOLD=false` on your host (or remove the hold).
+Open [http://localhost:3000](http://localhost:3000). The homepage is [`components/home/home-page.tsx`](components/home/home-page.tsx).
 
 ## Design
 

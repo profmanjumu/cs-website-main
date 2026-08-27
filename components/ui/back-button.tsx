@@ -1,22 +1,56 @@
 'use client'
 
+import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { ChevronLeftIcon } from 'lucide-react'
+import { ArrowLeft } from '@phosphor-icons/react'
 
-const BackButton = () => {
-  const pathname = usePathname()
+type BackButtonProps = {
+  href?: string
+  label?: string
+}
+
+const BackButton = ({ href, label = 'Back' }: BackButtonProps) => {
   const { back } = useRouter()
-  if (pathname === '/') return null
+
+  const className =
+    'btn-primary inline-flex items-center gap-2 text-[15px] no-underline'
+
+  const inner = (
+    <>
+      <ArrowLeft size={18} aria-hidden="true" />
+      {label}
+    </>
+  )
+
+  if (href) {
+    return (
+      <Link href={href} className={className}>
+        {inner}
+      </Link>
+    )
+  }
+
   return (
-    <button
-      type="button"
-      onClick={() => back()}
-      aria-label="Go back"
-      className="fixed top-14 left-3 z-[60] inline-flex items-center gap-1.5 px-3 py-1.5 bg-silverSoft border border-plum/40 text-ink font-bricolage text-sm font-semibold shadow-sm hover:bg-slateRose/40 hover:border-mulberry transition-colors"
-    >
-      <ChevronLeftIcon size={14} />
-      Back
+    <button type="button" onClick={() => back()} aria-label={label} className={className}>
+      {inner}
     </button>
+  )
+}
+
+/** Shown on /cs210/topic-name/id pages generated from the Topics list. */
+export function TopicPageBack() {
+  const pathname = usePathname()
+  const parts = pathname.split('/').filter(Boolean)
+  if (parts.length < 3) return null
+
+  const slug = parts[0]
+  const match = slug.match(/^cs(\d+)$/i)
+  if (!match) return null
+
+  return (
+    <div className="sticky top-0 z-20 bg-surface px-6 sm:px-10 pt-6 pb-2">
+      <BackButton href={`/sdsu?course=cs-${match[1]}`} label="Back to course" />
+    </div>
   )
 }
 

@@ -8,17 +8,17 @@ type HubTabBarProps = {
 
 export function HubTabBar({ tabs, active, onChange }: HubTabBarProps) {
   return (
-    <div className="flex flex-wrap border-b border-plum/30 mb-8 gap-x-1">
+    <div className="flex flex-wrap gap-0.5 px-6 sm:px-10 pt-5 shadow-[inset_0_-1px_0_rgba(233,233,237,0.14)]">
       {tabs.map((tab) => (
         <button
           key={tab}
           type="button"
           onClick={() => onChange(tab)}
           className={[
-            'font-bricolage text-base font-bold px-5 py-3 border-b-2 -mb-px transition-colors',
+            'font-body font-medium text-[16px] px-[18px] py-2.5 bg-transparent cursor-pointer',
             active === tab
-              ? 'border-mulberry text-mulberry'
-              : 'border-transparent text-inkMuted hover:text-ink',
+              ? 'border-0 border-b-2 border-vanilla text-vanilla'
+              : 'border-0 border-b-2 border-transparent text-cadet hover:text-paper',
           ].join(' ')}
         >
           {tab}

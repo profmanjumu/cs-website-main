@@ -17,8 +17,7 @@ const Masthead = () => {
 
       {/* Main three-column masthead */}
       <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-6 py-5 text-center md:text-left">
-        {/* Left — class roster (SDSU + Sally Ride Science) */}
-        <div className="hidden md:block font-bricolage text-[11px] tracking-[0.12em] text-inkMuted leading-[2.2]">
+        <div className="hidden md:block font-body text-[11px] tracking-[0.12em] text-cadet leading-[2.2]">
           {sdsuClasses.map((c) => (
             <Link
               key={c.href}
@@ -57,14 +56,14 @@ const Masthead = () => {
         </div>
 
         {/* Center — wordmark */}
-        <h1 className="font-bricolage font-extrabold text-ink leading-[0.88] tracking-[-3px] text-[52px] sm:text-[72px] lg:text-[104px] whitespace-nowrap">
+        <h1 className="font-display font-light text-paper leading-[0.88] tracking-[-3px] text-[52px] sm:text-[72px] lg:text-[104px] whitespace-nowrap">
           Manju&rsquo;s
           <br />
           Classroom
         </h1>
 
         {/* Right — contact meta */}
-        <div className="hidden md:block text-right font-bricolage text-[11px] tracking-[0.12em] text-inkMuted leading-[2.2]">
+        <div className="hidden md:block text-left font-body text-[11px] tracking-[0.12em] text-cadet leading-[2.2]">
           <span className="block">Office Hours: TBD</span>
           <span className="block">GMCS 538</span>
         </div>

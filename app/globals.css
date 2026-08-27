@@ -3,213 +3,110 @@
 @tailwind utilities;
 
 @layer base {
-  /* Dusty Mulberry / Stormy Blue / Silver Mist palette */
   :root {
-    --background: 204 15% 82%; /* #CBD3D8 silver */
-    --foreground: 24 18% 8%; /* #1A1410 ink */
+    --ground: #0f111c;
+    --surface: #161826;
+    --surface-rail: #12141f;
+    --surface-panel: #1b1e2e;
+    --ink: #161826;
+    --text: #e9e9ed;
+    --text-on-band: #f3f5fe;
+    --liberty: #5c63a4;
+    --lavender: #8b7fac;
+    --pink: #d4949d;
+    --vanilla: #dec0ae;
+    --cadet: #acb0cc;
+    --font-display: 'Outfit', system-ui, sans-serif;
+    --font-body: 'Manrope', system-ui, sans-serif;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
 
-    --card: 204 18% 91%; /* #E4E9EC */
-    --card-foreground: 24 18% 8%;
-
-    --popover: 204 18% 91%;
-    --popover-foreground: 24 18% 8%;
-
-    --primary: 303 20% 57%; /* #A67CA4 mulberry */
-    --primary-foreground: 204 18% 96%;
-
-    --secondary: 204 18% 91%;
-    --secondary-foreground: 24 18% 8%;
-
-    --muted: 204 18% 91%;
-    --muted-foreground: 255 8% 29%; /* #4A4550 */
-
-    --accent: 207 27% 54%; /* #6A8CA9 stormy */
-    --accent-foreground: 204 18% 96%;
-
-    --destructive: 0 65% 45%;
-    --destructive-foreground: 204 18% 96%;
-
-    --border: 255 14% 55%; /* #857A9E plum */
-    --input: 255 14% 55%;
-    --ring: 303 20% 57%;
-
-    --radius: 0.35rem;
-  }
-
-  .dark {
-    --background: 24 18% 8%;
-    --foreground: 204 15% 82%;
-
-    --card: 24 12% 12%;
-    --card-foreground: 204 15% 82%;
-
-    --popover: 24 12% 12%;
-    --popover-foreground: 204 15% 82%;
-
-    --primary: 303 20% 62%;
-    --primary-foreground: 24 18% 8%;
-
-    --secondary: 24 12% 16%;
-    --secondary-foreground: 204 15% 82%;
-
-    --muted: 24 12% 16%;
-    --muted-foreground: 255 14% 65%;
-
-    --accent: 207 27% 58%;
-    --accent-foreground: 24 18% 8%;
-
-    --destructive: 0 62% 45%;
-    --destructive-foreground: 204 15% 82%;
-
-    --border: 24 12% 22%;
-    --input: 24 12% 22%;
-    --ring: 303 20% 62%;
+    --background: 230 24% 12%;
+    --foreground: 240 8% 92%;
+    --card: 230 22% 14%;
+    --card-foreground: 240 8% 92%;
+    --popover: 230 22% 14%;
+    --popover-foreground: 240 8% 92%;
+    --primary: 235 28% 50%;
+    --primary-foreground: 240 8% 92%;
+    --secondary: 230 22% 16%;
+    --secondary-foreground: 240 8% 92%;
+    --muted: 230 22% 16%;
+    --muted-foreground: 230 22% 74%;
+    --accent: 257 20% 58%;
+    --accent-foreground: 240 8% 92%;
+    --destructive: 351 44% 70%;
+    --destructive-foreground: 230 24% 12%;
+    --border: 240 8% 92%;
+    --input: 240 8% 92%;
+    --ring: 257 20% 58%;
+    --radius: 8px;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: rgba(233, 233, 237, 0.12);
   }
   html {
-    background: hsl(var(--background));
+    background: var(--ground);
   }
   body {
-    @apply bg-background text-foreground font-lora antialiased;
+    @apply bg-ground text-paper font-body font-light antialiased;
+  }
+  a {
+    color: var(--lavender);
+  }
+  a:hover {
+    color: var(--vanilla);
+  }
+  :focus {
+    outline: none;
+  }
+  :focus-visible {
+    outline: 2px solid var(--lavender);
+    outline-offset: 2px;
   }
 }
 
 @layer components {
-  .section-tag {
-    @apply font-bricolage text-xs font-semibold tracking-wide text-mulberry
-           border-b border-mulberry pb-1.5 mb-3.5 inline-block;
-  }
-
   .eyebrow {
-    @apply font-bricolage text-xs font-semibold tracking-wide text-stormy;
+    @apply font-body font-medium text-[11px] uppercase tracking-[0.14em];
   }
 
-  .meta {
-    @apply font-bricolage text-xs font-medium text-inkMuted;
+  .btn-primary {
+    @apply inline-block no-underline font-body font-normal text-base
+           text-vanilla border border-vanilla px-5 py-3.5
+           transition-colors duration-150;
+  }
+  .btn-primary:hover {
+    background: rgba(222, 192, 174, 0.14);
+    color: var(--vanilla);
   }
 
-  .ruling {
-    @apply border-t border-plum/40 my-4;
-    border-top-width: 1px;
+  .rowlink {
+    color: inherit;
+    transition: background 0.15s ease, padding-left 0.15s ease;
+  }
+  .rowlink:hover {
+    color: inherit;
+    padding-left: 8px;
   }
 
-  .ruling-double {
-    @apply my-5;
-    border-top: 3px double #857a9e;
+  .syllabus-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
   }
-
-  .btn-ink {
-    @apply font-bricolage text-sm font-semibold
-           bg-mulberry text-silverSoft px-6 py-3 inline-block no-underline
-           transition-colors hover:bg-mulberryHover;
+  .syllabus-list li {
+    display: grid;
+    grid-template-columns: 14px 1fr;
+    gap: 8px;
+    margin-bottom: 4px;
   }
-
-  .btn-ghost {
-    @apply font-bricolage text-sm font-semibold
-           bg-transparent text-ink border border-plum/50 px-6 py-3 inline-block
-           no-underline transition-colors hover:border-mulberry hover:text-mulberry;
+  .syllabus-list li::before {
+    content: '\2022';
+    color: var(--lavender);
   }
-
-  .pill {
-    @apply font-bricolage text-xs font-medium
-           bg-slateRose/40 border border-plum/30 text-inkMuted px-2.5 py-[3px]
-           inline-block mr-0.5 my-0.5;
-  }
-  .pill-terra {
-    @apply bg-mulberry border-mulberry text-silverSoft;
-  }
-  .pill-olive {
-    @apply bg-stormy border-stormy text-silverSoft;
-  }
-
-  .course-row {
-    @apply py-3 border-b border-faint transition-[padding] hover:pl-1.5;
-  }
-  .course-row:first-of-type {
-    @apply border-t border-faint;
-  }
-  .course-code {
-    @apply font-bricolage text-sm font-bold tracking-wide text-mulberry;
-  }
-  .course-title-sm {
-    @apply font-lora text-[15px] text-ink my-0.5;
-  }
-  .course-meta-sm {
-    @apply font-bricolage text-xs text-inkMuted;
-  }
-
-  .oh-block {
-    @apply bg-silverSoft border border-plum/30 p-3.5;
-  }
-  .oh-row {
-    @apply flex justify-between font-bricolage text-sm py-1.5
-           border-b border-faint text-inkMuted last:border-b-0;
-  }
-  .oh-row strong {
-    @apply text-ink font-semibold;
-  }
-
-  .drop-cap::first-letter {
-    @apply font-lora font-bold float-left text-mulberry;
-    font-size: 66px;
-    line-height: 0.72;
-    margin: 6px 8px 0 0;
-  }
-
-  .press-item {
-    @apply py-2.5 border-b border-faint last:border-b-0;
-  }
-  .press-item:first-of-type {
-    @apply border-t border-faint;
-  }
-  .press-outlet {
-    @apply font-bricolage text-xs font-semibold tracking-wide text-stormy;
-  }
-  .press-hed {
-    @apply font-lora italic text-[13px] leading-snug text-ink mt-0.5;
-  }
-
-  .hub-cta {
-    @apply font-bricolage font-bold text-2xl sm:text-3xl text-center
-           bg-silverSoft border border-plum/40 text-ink px-10 py-8
-           no-underline transition-colors hover:bg-mulberry hover:text-silverSoft
-           hover:border-mulberry;
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.anim-fade-up {
-  animation: fadeUp 0.65s ease both;
-}
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient 6s ease infinite;
 }

@@ -2,10 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { motion } from 'framer-motion'
+import { ArrowUpRight } from '@phosphor-icons/react'
 import { TopicsType } from '@/lib/types'
-import { liVariants, ulVariants } from '@/lib/data'
-import { ExternalLinkIcon } from 'lucide-react'
 
 export type TopicsProps = {
   topics: TopicsType[]
@@ -18,37 +16,23 @@ export const Topics = ({ topics, basePath }: TopicsProps) => {
   const root = basePath ?? pathname
 
   return (
-    <motion.ul
-      initial="hidden"
-      animate="show"
-      variants={ulVariants}
-      className="flex flex-col"
-    >
+    <ul className="flex flex-col m-0 p-0 list-none">
       {topics.map((link, index) => (
-        <motion.li
-          variants={liVariants}
-          key={index}
-          className="course-row group"
-        >
+        <li key={link.id}>
           <Link
             href={`${root}/${encodeURI(link.name.split(' ').join('-'))}/${link.id}`}
-            className="flex items-center justify-between gap-4"
+            className="rowlink grid grid-cols-[1fr_auto] gap-3.5 items-center py-2.5 no-underline shadow-[inset_0_-1px_0_rgba(233,233,237,0.1)] hover:text-inherit"
           >
-            <div>
-              <div className="course-code">
+            <span>
+              <span className="block font-body font-medium text-[12px] tracking-[0.1em] uppercase text-vanilla">
                 Topic {String(index + 1).padStart(2, '0')}
-              </div>
-              <div className="course-title-sm group-hover:text-terra transition-colors">
-                {link.name}
-              </div>
-            </div>
-            <ExternalLinkIcon
-              size={16}
-              className="text-inkMuted shrink-0 group-hover:text-terra transition-colors"
-            />
+              </span>
+              <span className="block text-[15px] text-paper">{link.name}</span>
+            </span>
+            <ArrowUpRight size={15} className="text-cadet shrink-0" aria-hidden />
           </Link>
-        </motion.li>
+        </li>
       ))}
-    </motion.ul>
+    </ul>
   )
 }

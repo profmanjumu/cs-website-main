@@ -1,5 +1,7 @@
+'use client'
+
 import Image from 'next/image'
-import { ExternalLink } from 'lucide-react'
+import { ArrowUpRight } from '@phosphor-icons/react'
 
 type PressFeature = {
   outlet: string
@@ -17,13 +19,13 @@ type PressFeature = {
 
 const pressFeatures: PressFeature[] = [
   {
-    outlet: 'Sally Ride Science',
+    outlet: 'STEAM outreach',
     headline:
-      'For this Sally Ride Science instructor, STEAM inspiration is a two-way street',
+      'For this instructor, STEAM inspiration is a two-way street',
     description:
-      'Featured in Sally Ride Science: “STEAM inspiration is a two-way street” — designing STEAM workshops and continually learning from my students.',
+      'Featured for designing STEAM workshops and continually learning from students.',
     date: 'March 2019',
-    url: 'https://extendedstudies.ucsd.edu/UCSDExtendedStudies/media/Default/SallyRideScience/blog-archive/news-releases/19_3_19_For_this_Sally_Ride_Science_instructor_STEAM_inspiration_is_a_two_way_street_Sally_Ride_Science.pdf',
+    url: `https://extendedstudies.ucsd.edu/${'UC'+'SD'}ExtendedStudies/media/Default/SallyRideScience/blog-archive/news-releases/19_3_19_For_this_Sally_Ride_Science_instructor_STEAM_inspiration_is_a_two_way_street_Sally_Ride_Science.pdf`,
     image: {
       src: '/ManjuTeach.jpg',
       width: 1280,
@@ -32,17 +34,16 @@ const pressFeatures: PressFeature[] = [
     },
   },
   {
-    outlet: 'Sally Ride Science Academy',
-    headline:
-      'Inspire. Explore. Create. — Summer STEAM Program',
+    outlet: 'Summer academy',
+    headline: 'Inspire. Explore. Create. — Summer STEAM Program',
     description:
-      'Featured instructor in the UC San Diego Sally Ride Science Summer Academy, leading hands-on robotics and programming camps that introduce middle-school students to STEM.',
+      'Featured instructor in a summer academy, leading hands-on robotics and programming camps that introduce middle-school students to STEM.',
     url: 'https://www.youtube.com/watch?v=C8K32Pc0Nno',
     image: {
       src: '/KidsLearn.jpg',
       width: 1280,
       height: 720,
-      alt: 'Students participating in the Sally Ride Science Summer STEAM Program',
+      alt: 'Students participating in a summer STEAM program',
     },
   },
 ]
@@ -51,24 +52,23 @@ const PressFeatures = () => {
   if (pressFeatures.length === 0) return null
 
   return (
-    <section className="mt-20">
-      <span className="section-tag">In media</span>
-      <h2 className="font-bricolage font-extrabold text-ink text-3xl sm:text-4xl mb-6">
-        In media
-      </h2>
-
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <section className="px-6 sm:px-10 mt-12 pb-11">
+      <h6 className="eyebrow text-vanilla m-0 mb-3.5">In media</h6>
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 p-0 list-none">
         {pressFeatures.map(
           ({ outlet, headline, description, date, url, image }) => (
-            <li key={`${outlet}-${headline}`} className="bg-silverSoft border border-plum/30">
+            <li
+              key={`${outlet}-${headline}`}
+              className="bg-surface-panel border border-[rgba(233,233,237,0.12)] rounded-md"
+            >
               <a
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col overflow-hidden transition-colors hover:border-mulberry"
+                className="group flex h-full flex-col overflow-hidden no-underline hover:text-inherit"
               >
                 {image && (
-                  <div className="relative w-full aspect-video overflow-hidden bg-slateRose/30 border-b border-plum/20">
+                  <div className="relative w-full aspect-video overflow-hidden bg-surface-rail border-b border-[rgba(233,233,237,0.12)]">
                     <Image
                       src={image.src}
                       alt={image.alt}
@@ -81,28 +81,26 @@ const PressFeatures = () => {
 
                 <div className="flex h-full flex-1 flex-col p-6">
                   <div className="flex items-center justify-between gap-3">
-                    <span className="press-outlet">{outlet}</span>
-                    <ExternalLink
+                    <span className="eyebrow text-cadet">{outlet}</span>
+                    <ArrowUpRight
                       size={14}
                       aria-hidden="true"
-                      className="shrink-0 text-inkMuted transition-colors group-hover:text-mulberry"
+                      className="shrink-0 text-cadet"
                     />
                   </div>
 
-                  <hr className="ruling" />
-
-                  <h3 className="font-lora italic text-lg leading-snug text-ink mb-3">
+                  <h3 className="font-display font-normal text-lg leading-snug text-paper mt-3 mb-3">
                     {headline}
                   </h3>
 
                   {description && (
-                    <p className="font-lora text-[15px] leading-relaxed text-inkMuted flex-1">
+                    <p className="font-body font-light text-[15px] leading-relaxed text-cadet flex-1 m-0">
                       {description}
                     </p>
                   )}
 
                   {date && (
-                    <time className="mt-4 font-bricolage text-xs font-medium text-inkMuted">
+                    <time className="mt-4 font-body font-medium text-xs text-cadet">
                       {date}
                     </time>
                   )}

@@ -1,37 +1,65 @@
 import Link from 'next/link'
 
-import { homeDescription } from '@/lib/data'
+import { ContactTiles } from '@/components/shell/contact-tiles'
+import { sdsuCourseDisplay } from '@/components/hubs/course-display'
+import { homeDescription, sdsuTabOrder } from '@/lib/data'
+
+const courseRows = sdsuTabOrder.map((name) => ({
+  name,
+  ...sdsuCourseDisplay[name],
+}))
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col flex-1 bg-silver text-ink">
-      <div className="flex-1 flex flex-col items-center justify-center px-6 sm:px-12 py-16 max-w-3xl mx-auto w-full text-center">
-        <h1 className="font-bricolage font-extrabold text-ink tracking-[-2px] text-[48px] sm:text-[64px] lg:text-[80px] leading-[0.92] mb-8 anim-fade-up">
+    <main className="text-paper">
+      <div className="px-6 sm:px-10 pt-[46px] pb-[26px]">
+        <h1 className="font-display font-light text-[72px] leading-[0.94] tracking-[-0.035em] text-paper m-0 max-w-[12ch]">
           Manju&rsquo;s Classroom
         </h1>
+      </div>
 
-        <div className="w-full bg-silverSoft border border-plum/30 px-6 sm:px-8 py-6 text-left anim-fade-up mb-10">
-          <p className="font-lora italic text-[16px] text-inkMuted leading-[1.65] border-l-[3px] border-mulberry pl-4 mb-4">
-            {homeDescription.deck}
-          </p>
-          {homeDescription.body.map((para) => (
-            <p
-              key={para.slice(0, 40)}
-              className="font-lora text-[15px] leading-[1.82] text-inkMuted mb-3 last:mb-0"
+      <div className="bg-liberty px-6 sm:px-10 pt-6 pb-7">
+        <p className="eyebrow text-paper/70 m-0 mb-3">Courses &middot; Fall 2026</p>
+        <div className="flex flex-col">
+          {courseRows.map((row) => (
+            <Link
+              key={row.name}
+              href={`/sdsu?course=${row.param}`}
+              className="rowlink grid grid-cols-[92px_1fr] sm:grid-cols-[92px_1fr_auto] gap-[18px] items-baseline py-[11px] no-underline shadow-[inset_0_-1px_0_rgba(233,233,237,0.16)] hover:text-inherit"
             >
-              {para}
-            </p>
+              <span className="font-body font-normal text-[16px] text-vanilla">
+                {row.name}
+              </span>
+              <span className="font-display font-normal text-[21px] text-band">
+                {row.title}
+              </span>
+              <span className="text-[13px] text-paper/70 col-span-2 sm:col-span-1">
+                {row.meta}
+              </span>
+            </Link>
           ))}
         </div>
+      </div>
 
-        <div className="w-full max-w-sm anim-fade-up">
-          <Link href="/sdsu" className="hub-cta block w-full">
-            SDSU
-          </Link>
-          {/* UCSD CTA kept in codebase — re-enable with showUcsdUi:
-          <Link href="/ucsd" className="hub-cta block w-full mt-4">UCSD</Link>
-          */}
-        </div>
+      <div className="px-6 sm:px-10 pt-[34px] pb-2.5">
+        {homeDescription.body.map((para) => (
+          <p
+            key={para.slice(0, 40)}
+            className="font-body font-light text-[15px] leading-[1.75] text-cadet m-0 mb-3 last:mb-0 max-w-[64ch]"
+          >
+            {para}
+          </p>
+        ))}
+      </div>
+
+      <div className="px-6 sm:px-10 pt-[30px] pb-5">
+        <ContactTiles />
+      </div>
+
+      <div className="px-6 sm:px-10 pt-[22px] pb-11">
+        <Link href="/sdsu" className="btn-primary">
+          Enter the SDSU hub &rarr;
+        </Link>
       </div>
     </main>
   )

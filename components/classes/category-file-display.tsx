@@ -23,7 +23,7 @@ const CategoryFileDisplay: React.FC<CategoryFileDisplayProps> = ({
   return (
     <section className="mb-12">
       <CategoryDivider>{files[0].category}</CategoryDivider>
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 justify-items-center">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
         {files.map((file, index) => {
           const embedUrl = `https://drive.google.com/file/d/${file.id}/preview`
           const fileNameWithoutExtension = file.name

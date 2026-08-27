@@ -6,9 +6,9 @@ export type ClassOption = {
   name: string
   icon: React.ReactElement
   href: string
-  // SDSU CS courses are 'SDSU'; Sally Ride Science / Extended Studies are 'SRS'.
+  // SDSU CS courses are 'SDSU'; outreach / Extended Studies are 'SRS'.
   org: 'SDSU' | 'SRS'
-  // When true, the href points at an external page (e.g. UCSD Extended Studies).
+  // When true, the href points at an external page.
   external?: boolean
 }
 
@@ -57,8 +57,8 @@ export const classOptions: ClassOption[] = [
 export const sdsuTabOrder = ['CS 210', 'CS 250', 'CS 460', 'CS 577'] as const
 
 /**
- * When false, UCSD / Sally Ride outreach UI is hidden from nav, home,
- * hubs, and About. Data + `/ucsd` route remain in the codebase for later.
+ * When false, outreach UI is hidden from nav, home, hubs, and About.
+ * Data + `/ucsd` route remain in the codebase for later.
  */
 export const showUcsdUi = false
 
@@ -77,14 +77,14 @@ export const courseMeta: Record<
   'CS 577': { title: 'Data Science', meta: 'Mon-Fri \u00b7 Summer 2026' },
   'Lego Robotics': {
     title: 'Upper Elementary School',
-    meta: 'Jul 20 \u2013 Jul 24 \u00b7 UCSD Extended Studies',
+    meta: 'Jul 20 \u2013 Jul 24 \u00b7 Extended Studies',
     image: '/ManjuTeach.jpg',
     description:
       'Students build robots using Lego Mindstorms and explore sensors, motors, and coding — including an app joystick for battle bots.',
   },
   '2D & 3D Game Programming': {
     title: 'Middle School',
-    meta: 'Jul 6 \u2013 Jul 10 \u00b7 Sally Ride Science Academy',
+    meta: 'Jul 6 \u2013 Jul 10 \u00b7 Summer Academy',
     image: '/KidsLearn.jpg',
     description:
       'Hands-on robotics and programming camps that introduce middle-school students to STEM in a fun, project-based environment.',
@@ -112,7 +112,7 @@ export const homeDescription = {
   ],
 } as const
 
-/** UCSD hub GitHub Pages embed URLs — fill in via CONTENT_TODO.md */
+/** Outreach hub GitHub Pages embed URLs — fill in via CONTENT_TODO.md */
 export const ucsdEmbedUrls: { label: string; url: string }[] = [
   // { label: 'Program overview', url: 'https://...' },
 ]
@@ -122,10 +122,10 @@ export const navLinks = [
     label: 'Home',
     href: '/',
   },
-  // SDSU hub — home screen CTA only, not in top nav
+  // SDSU hub
   // Kept in code — gated by showUcsdUi in the Nav component
   {
-    label: 'UCSD',
+    label: 'Outreach',
     href: '/ucsd',
     ucsdOnly: true,
   },

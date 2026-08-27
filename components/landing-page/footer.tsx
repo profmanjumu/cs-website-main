@@ -1,34 +1,30 @@
+'use client'
+
 import Link from 'next/link'
-import { SiInstagram, SiLinkedin } from 'react-icons/si'
+import { InstagramLogo, LinkedinLogo } from '@phosphor-icons/react
 
 const socialLinks = [
   {
     name: 'Instagram',
     href: 'https://www.instagram.com/manju.mu?igsh=MzRlODBiNWFlZA==',
-    Icon: SiInstagram,
+    Icon: InstagramLogo,
   },
   {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/manjumu/',
-    Icon: SiLinkedin,
+    Icon: LinkedinLogo,
   },
-  // TikTok: add href in CONTENT_TODO.md when available, then uncomment:
-  // {
-  //   name: 'TikTok',
-  //   href: 'TIKTOK_URL_HERE',
-  //   Icon: SiTiktok,
-  // },
 ] as const
 
 const Footer = () => {
   return (
-    <footer className="w-full mt-auto bg-ink text-silver/80">
-      <div className="px-6 sm:px-12 py-5 flex flex-col sm:flex-row items-center sm:justify-between gap-4 text-center sm:text-left">
-        <p className="font-bricolage text-xs font-medium text-silver/45">
+    <footer className="w-full mt-auto bg-surface-rail text-cadet">
+      <div className="px-6 sm:px-12 py-5 flex flex-col sm:flex-row items-start sm:justify-between gap-4">
+        <p className="font-body font-medium text-xs text-cadet">
           &copy; {new Date().getFullYear()} Manju&rsquo;s Classroom
         </p>
 
-        <ul className="flex items-center gap-5 sm:gap-6">
+        <ul className="flex items-center gap-5 sm:gap-6 m-0 p-0 list-none">
           {socialLinks.map(({ name, href, Icon }) => (
             <li key={name}>
               <Link
@@ -36,7 +32,7 @@ const Footer = () => {
                 aria-label={name}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slateRose hover:text-silverSoft transition-colors duration-150"
+                className="text-pink hover:text-vanilla transition-colors duration-150"
               >
                 <Icon size={22} aria-hidden="true" />
               </Link>

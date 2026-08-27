@@ -5,6 +5,7 @@ import { useState } from 'react'
 import ResourcesPanel from '@/components/classes/resources-panel'
 import Syllabus from '@/components/classes/syllabus'
 import { Topics } from '@/components/classes/topics'
+import { OfficeHoursBlock } from '@/components/shell/contact-tiles'
 import { TopicsType } from '@/lib/types'
 
 type TabId = 'syllabus' | 'topics' | 'resources'
@@ -29,49 +30,42 @@ export default function ClassTabs({
   courseTitle,
   topics,
   discordWidgetId,
-  embedded = false,
 }: ClassTabsProps) {
   const [active, setActive] = useState<TabId>('syllabus')
 
   return (
-    <div
-      className={
-        embedded
-          ? 'pb-16 max-w-6xl mx-auto'
-          : 'px-6 sm:px-12 pb-16 max-w-6xl mx-auto'
-      }
-    >
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8 pt-4">
+    <div className="pb-11">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-[26px] items-start px-6 sm:px-10">
         <div>
-          <div className="flex flex-wrap border-b border-plum/30 mb-6">
+          <div className="flex flex-wrap gap-2 mb-5">
             {tabLabels.map((tab) => (
               <button
                 key={tab.id}
                 type="button"
                 onClick={() => setActive(tab.id)}
                 className={[
-                  'font-bricolage text-sm font-bold px-5 py-3 border-b-2 -mb-px transition-colors',
+                  'font-body font-medium text-[13px] tracking-[0.06em] uppercase px-3.5 py-2 rounded-sm cursor-pointer',
                   active === tab.id
-                    ? 'border-mulberry text-mulberry'
-                    : 'border-transparent text-inkMuted hover:text-ink',
+                    ? 'bg-[rgba(139,127,172,0.22)] border border-lavender text-paper'
+                    : 'bg-transparent border border-[rgba(233,233,237,0.16)] text-cadet hover:text-paper',
                 ].join(' ')}
               >
                 {tab.label}
               </button>
             ))}
           </div>
-          <div className="bg-silverSoft/60 border border-plum/20 p-4 sm:p-6 min-h-[280px]">
+          <div className="bg-surface-panel border border-[rgba(233,233,237,0.12)] rounded-md px-[26px] py-6 min-h-[320px]">
             {active === 'syllabus' && <Syllabus courseSlug={slug} />}
             {active === 'topics' && (
               <div>
-                <p className="font-lora italic text-inkMuted border-l-[3px] border-mulberry pl-4 mb-6 max-w-prose">
+                <p className="font-body font-light text-[14px] leading-[1.7] text-cadet border-l-2 border-lavender pl-3 mb-[18px] max-w-[60ch]">
                   Each topic below is linked to the corresponding slides, video
                   lectures and external resources.
                 </p>
                 {topics.length > 0 ? (
                   <Topics topics={topics} basePath={`/${slug}`} />
                 ) : (
-                  <p className="font-lora italic text-inkMuted">
+                  <p className="font-body font-light text-[14px] text-cadet m-0">
                     No topics found for this course folder.
                   </p>
                 )}
@@ -82,30 +76,31 @@ export default function ClassTabs({
         </div>
 
         <aside>
-          <span className="section-tag">Latest</span>
-          <div className="border border-plum/30 bg-silverSoft overflow-hidden">
-            <div className="px-3 py-2 border-b border-plum/20 font-bricolage text-xs font-semibold tracking-wide text-stormy">
+          <h6 className="eyebrow text-cadet m-0 mb-2.5">Latest</h6>
+          <div className="border border-[rgba(233,233,237,0.14)] rounded-md overflow-hidden">
+            <div className="px-3 py-2.5 font-body font-medium text-[12px] tracking-[0.04em] text-lavender shadow-[inset_0_-1px_0_rgba(233,233,237,0.12)]">
               Discord &middot; {courseTitle}
             </div>
             {discordWidgetId ? (
               <iframe
-                src={`https://discord.com/widget?id=${discordWidgetId}&theme=light`}
+                src={`https://discord.com/widget?id=${discordWidgetId}&theme=dark`}
                 width="100%"
                 height="350"
                 frameBorder={0}
                 sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
                 title={`${courseTitle} Discord`}
-                className="bg-white"
+                className="bg-surface-panel"
               />
             ) : (
-              <div className="p-6 text-center">
-                <p className="font-lora italic text-sm text-inkMuted">
-                  Discord widget ID not set for{' '}
-                  <code className="font-bricolage text-[11px]">{slug}</code>.
-                  See CONTENT_TODO.md.
+              <div className="px-[18px] py-[26px] text-left">
+                <p className="font-body font-light text-[13px] leading-[1.6] text-cadet m-0">
+                  Course Discord widget mounts here.
                 </p>
               </div>
             )}
+          </div>
+          <div className="mt-[18px]">
+            <OfficeHoursBlock />
           </div>
         </aside>
       </div>

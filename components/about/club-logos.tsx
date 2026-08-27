@@ -1,58 +1,43 @@
-import { showUcsdUi } from '@/lib/data'
-
 const clubs = [
   {
-    name: 'Bolts Robotics - SDSU VexU',
-    file: 'public/clubs/bolts-robotics.png',
-    ucsdOnly: false,
+    name: 'Bolts Robotics',
+    meta: 'SDSU VexU',
+    accent: 'border-lavender',
   },
   {
-    name: 'Girls Who Code - SDSU College Loop',
-    file: 'public/clubs/girls-who-code.png',
-    ucsdOnly: false,
+    name: 'Girls Who Code',
+    meta: 'SDSU College Loop',
+    accent: 'border-pink',
   },
   {
-    name: 'Sally Ride Science - UCSD',
-    file: 'public/clubs/sally-ride-science.png',
-    ucsdOnly: true,
+    name: 'AWS Student Builder Group',
+    meta: 'SDSU',
+    accent: 'border-cadet',
   },
   {
-    name: 'SDSU CS',
-    file: 'public/clubs/sdsu-cs.png',
-    ucsdOnly: false,
+    name: 'Aztec Blockchain Group',
+    meta: 'SDSU',
+    accent: 'border-vanilla',
   },
 ] as const
 
 const ClubLogos = () => {
-  const visible = clubs.filter((c) => showUcsdUi || !c.ucsdOnly)
-
   return (
-    <section className="mt-20">
-      <span className="section-tag">Clubs</span>
-      <h2 className="font-bricolage font-extrabold text-ink text-3xl sm:text-4xl mb-6">
-        Clubs
-      </h2>
-
-      <ul className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-        {visible.map((club) => (
-          <li
+    <section className="px-6 sm:px-10 pt-[30px]">
+      <h6 className="eyebrow text-vanilla m-0 mb-3.5">Clubs</h6>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 gap-x-5">
+        {clubs.map((club) => (
+          <div
             key={club.name}
-            className="bg-silverSoft border border-dashed border-plum/40 aspect-square flex flex-col items-center justify-center p-4 text-center gap-3"
+            className={`border-l-[3px] ${club.accent} py-1 pl-3`}
           >
-            <div
-              className="w-14 h-14 rounded-full bg-slateRose/50 border border-plum/30"
-              aria-hidden="true"
-            />
-            <span className="font-bricolage text-xs font-medium text-inkMuted leading-snug">
+            <div className="font-body font-normal text-[17px] text-paper">
               {club.name}
-            </span>
-          </li>
+            </div>
+            <div className="text-[12px] text-cadet">{club.meta}</div>
+          </div>
         ))}
-      </ul>
-      <p className="mt-3 font-bricolage text-[10px] text-inkMuted/70">
-        Drop logo files into the paths listed in CONTENT_TODO.md to replace these
-        placeholders.
-      </p>
+      </div>
     </section>
   )
 }

@@ -16,33 +16,32 @@ export default function ResourcesPanel({ slug }: ResourcesPanelProps) {
 
   if (!links || Object.keys(links).length === 0) {
     return (
-      <p className="font-lora italic text-inkMuted">
+      <p className="font-body font-light text-[14px] text-cadet m-0">
         Resources for this course are not listed yet. See CONTENT_TODO.md.
       </p>
     )
   }
 
   return (
-    <div className="space-y-6">
+    <div className="flex flex-col gap-5">
       {Object.entries(links).map(([topic, items]) => (
         <div key={topic}>
-          <h3 className="font-bricolage text-sm font-semibold text-mulberry border-b border-mulberry pb-1.5 mb-3">
+          <h6 className="eyebrow text-vanilla m-0 mb-2.5 pb-1.5 shadow-[inset_0_-1px_0_rgba(222,192,174,0.4)]">
             {topic}
-          </h3>
-          <ul className="space-y-2">
+          </h6>
+          <div className="flex flex-wrap gap-2">
             {items.map((item) => (
-              <li key={`${item.name}-${item.href}`}>
-                <Link
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-lora text-[15px] text-ink hover:text-mulberry transition-colors underline underline-offset-2 decoration-plum/40"
-                >
-                  {item.name}
-                </Link>
-              </li>
+              <Link
+                key={`${item.name}-${item.href}`}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-body font-light text-[13px] text-cadet no-underline px-2.5 py-[5px] border border-[rgba(233,233,237,0.16)] rounded-sm hover:border-lavender hover:text-paper"
+              >
+                {item.name}
+              </Link>
             ))}
-          </ul>
+          </div>
         </div>
       ))}
     </div>

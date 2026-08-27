@@ -8,20 +8,16 @@ import {
   GoogleDriveFile,
 } from '@/lib/types'
 import { google } from 'googleapis'
-import { Gaxios } from "gaxios";
+
 export type TopicsPageProps = {
   params: {
+    slug: string
     nameId: string[]
   }
 }
 
 export default async function TopicPage({ params }: TopicsPageProps) {
-  // const [title, id] = params.slug
-
-  // console.log(title, id)
-
   const [title, id] = params.nameId
-  console.log('Title and id: ', title, id)
 
   const decodedCredentials = Buffer.from(
     process.env.GOOGLE_APPLICATION_CREDENTIALS!,
@@ -98,18 +94,17 @@ export default async function TopicPage({ params }: TopicsPageProps) {
   })
 
   return (
-    <main className="flex flex-col gap-y-12 min-h-screen bg-silver text-ink">
+    <main className="flex flex-col gap-y-12 min-h-screen">
       <Title>{decodeURIComponent(title).split('-').join(' ')}</Title>
       <ExternalLinks />
-      {sortedCategories.map((category, index) => (
-        <>
+      {sortedCategories.map((category) => (
+        <div key={category}>
           <Separator className="h-[3px]" />
           <CategoryFileDisplay
-            key={category}
             files={groupByExtension[category]}
             showDownloadButton={category === 'Slides'}
           />
-        </>
+        </div>
       ))}
     </main>
   )

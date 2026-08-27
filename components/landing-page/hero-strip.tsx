@@ -11,11 +11,11 @@ const courseMeta: Record<string, { title: string; meta: string }> = {
   
   'Lego Robotics': {
     title: 'Upper Elementary School',
-    meta: 'Jul 20 \u2013 Jul 24 \u00b7 UCSD Extended Studies',
+    meta: 'Jul 20 \u2013 Jul 24 \u00b7 Extended Studies',
   },
   '2D & 3D Game Programming': {
     title: 'Middle School',
-    meta: 'Jul 6 \u2013 Jul 10 \u00b7 Sally Ride Science Academy',
+    meta: 'Jul 6 \u2013 Jul 10 \u00b7 Summer Academy',
   },
 }
 
@@ -63,7 +63,7 @@ const HeroStrip = () => {
 
         {outreach.length > 0 && (
           <div>
-            <span className="section-tag">Sally Ride Science Summer 2026</span>
+            <span className="eyebrow text-pink">Summer 2026</span>
             {outreach.map((c) => (
               <CourseRow key={c.href} c={c} />
             ))}
@@ -90,11 +90,11 @@ const HeroStrip = () => {
       {/* RIGHT — hero copy + affiliations */}
       <div className="py-9 md:px-9 flex flex-col justify-center">
        
-        <h2 className="font-bricolage font-extrabold text-ink leading-[1.05] tracking-[-1px] text-[30px] sm:text-[38px] lg:text-[52px] mb-4 anim-fade-up">
+        <h2 className="font-display font-light text-paper leading-[1.05] tracking-[-1px] text-[30px] sm:text-[38px] lg:text-[52px] mb-4">
           Building Systems <br />
-          that <em className="italic text-terra">actually matter</em>
+          that <em className="italic text-vanilla">actually matter</em>
         </h2>
-        <p className="font-lora italic text-[16px] text-inkMuted leading-[1.65] border-l-[3px] border-terra pl-4 mb-5 anim-fade-up">
+        <p className="font-display font-light text-[16px] text-cadet leading-[1.65] border-l-[3px] border-lavender pl-4 mb-5">
           A classroom where assignments have side quests.
         </p>
         <hr className="ruling" />
@@ -119,7 +119,7 @@ const HeroStrip = () => {
           <div>
             <span className="pill pill-terra">Bolts Robotics</span>
             <span className="pill pill-olive">Girls Who Code</span>
-            <span className="pill">Sally Ride Science</span>
+            <span className="text-cadet text-[13px]">STEAM outreach</span>
           </div>
         </div>
       </div>

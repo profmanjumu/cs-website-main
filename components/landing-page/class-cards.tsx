@@ -13,10 +13,10 @@ const ClassCards = () => {
         {classOptions.map((option, index) => (
           <motion.li className="w-full" key={index}>
             <Link href={option.href}>
-              <Card className="group transition-all cursor-pointer font-bricolage hover:scale-105 shadow-sm flex items-center justify-center pt-4 bg-academic hover:bg-academicHover text-paper border-transparent">
+              <Card className="group transition-all cursor-pointer font-body hover:scale-105 shadow-sm flex items-center justify-center pt-4 bg-liberty text-paper border-transparent">
                 <CardContent className="flex gap-2 items-center justify-center">
                   {/* <span>{option.icon}</span> */}
-                  <span className="font-semibold text-lg">{option.name}</span>
+                  <span className="font-medium text-lg">{option.name}</span>
                   <span className="group-hover:translate-x-2 duration-300">
                     <ArrowRight />
                   </span>

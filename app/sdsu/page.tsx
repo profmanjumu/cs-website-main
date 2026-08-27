@@ -8,7 +8,11 @@ import {
 } from '@/lib/data'
 import { fetchDriveTopics } from '@/lib/drive-topics'
 
-export default async function SdsuHubPage() {
+export default async function SdsuHubPage({
+  searchParams,
+}: {
+  searchParams: { course?: string }
+}) {
   const byName = Object.fromEntries(
     classOptions.filter((c) => c.org === 'SDSU').map((c) => [c.name, c])
   )
@@ -38,8 +42,8 @@ export default async function SdsuHubPage() {
   }
 
   return (
-    <main className="flex-1 bg-silver text-ink pt-10">
-      <SdsuHub courses={courses} />
+    <main>
+      <SdsuHub courses={courses} initialCourse={searchParams.course} />
     </main>
   )
 }

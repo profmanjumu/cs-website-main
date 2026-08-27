@@ -1,27 +1,24 @@
 import type { Metadata } from 'next'
-import { Bricolage_Grotesque, Lora } from 'next/font/google'
+import { Outfit, Manrope } from 'next/font/google'
 import './globals.css'
-import { Nav } from '@/components/navigation/nav'
-import Footer from '@/components/landing-page/footer'
+import { SiteRail } from '@/components/navigation/site-rail'
 import { cn } from '@/lib/utils'
-import BackButton from '@/components/ui/back-button'
 
 export const metadata: Metadata = {
   title: "Manju's Classroom",
   description: 'SDSU Computer Science — Manju Muralidharan Priya',
 }
 
-const bricolage = Bricolage_Grotesque({
+const display = Outfit({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-bricolage',
+  weight: ['300', '400', '500'],
+  variable: '--font-display',
 })
 
-const lora = Lora({
+const body = Manrope({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-lora',
+  weight: ['300', '400', '500'],
+  variable: '--font-body',
 })
 
 export default function RootLayout({
@@ -38,15 +35,15 @@ export default function RootLayout({
       <head />
       <body
         className={cn(
-          bricolage.variable,
-          lora.variable,
-          'flex flex-col min-h-screen bg-silver text-ink antialiased font-lora'
+          display.variable,
+          body.variable,
+          'min-h-screen bg-ground text-paper antialiased font-body font-light'
         )}
       >
-        <Nav />
-        <BackButton />
-        {children}
-        <Footer />
+        <div className="min-h-screen md:grid md:grid-cols-[210px_1fr]">
+          <SiteRail />
+          <div className="bg-surface min-h-screen min-w-0">{children}</div>
+        </div>
       </body>
     </html>
   )

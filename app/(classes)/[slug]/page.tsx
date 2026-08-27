@@ -36,7 +36,7 @@ export default async function Page({ params }: PageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-silver text-ink">
+    <main>
       <Title>{title}</Title>
       <ClassTabs
         slug={params.slug}

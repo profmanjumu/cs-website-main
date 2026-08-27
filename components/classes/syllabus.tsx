@@ -2,19 +2,19 @@
 import { usePathname } from 'next/navigation'
 
 const H3 = ({ children }: { children: React.ReactNode }) => (
-  <h3 className="font-bricolage text-sm font-semibold text-terra border-b border-terra pb-1.5 mt-7 mb-3">
+  <h3 className="font-body font-medium text-[12px] uppercase tracking-[0.14em] text-vanilla m-0 mb-2.5 mt-6 pb-1.5 shadow-[inset_0_-1px_0_rgba(222,192,174,0.4)] first:mt-0">
     {children}
   </h3>
 )
 
 const P = ({ children }: { children: React.ReactNode }) => (
-  <p className="font-lora text-[15px] leading-[1.75] text-inkMuted mb-4">
+  <p className="font-body font-light text-[14px] leading-[1.75] text-cadet mb-2.5">
     {children}
   </p>
 )
 
 const UL = ({ children }: { children: React.ReactNode }) => (
-  <ul className="font-lora text-[15px] leading-[1.75] text-inkMuted mb-4 list-disc pl-5 marker:text-terra">
+  <ul className="syllabus-list font-body font-light text-[14px] leading-[1.7] text-cadet mb-4">
     {children}
   </ul>
 )
@@ -26,11 +26,6 @@ export default function Syllabus({ courseSlug }: { courseSlug?: string }) {
 
   return (
     <section>
-      <span className="section-tag">Syllabus &middot; Spring &rsquo;25</span>
-      <h2 className="font-bricolage font-extrabold text-ink text-3xl sm:text-4xl mt-2 mb-6">
-        Course Information
-      </h2>
-
       {course === 'cs210' ? (
         <div>
           <H3>Class Times</H3>
@@ -165,7 +160,6 @@ export default function Syllabus({ courseSlug }: { courseSlug?: string }) {
             an accommodation letter from Student Disability Services.
           </P>
 
-          <hr className="ruling-double" />
         </div>
       ) : course === 'cs460' ? (
         <div>
@@ -187,7 +181,7 @@ export default function Syllabus({ courseSlug }: { courseSlug?: string }) {
             Algorithms for solving frequently occurring problems. Analysis
             techniques, divide and conquer algorithms with applications, graph
             problems, greedy algorithms. Introduction to NP-complete problems.{' '}
-            <strong className="text-ink">Prerequisite(s):</strong> CS 210 and MATH 245.
+            <strong className="text-paper font-medium">Prerequisite(s):</strong> CS 210 and MATH 245.
           </P>
 
           <H3>Class Flow</H3>
@@ -287,17 +281,14 @@ export default function Syllabus({ courseSlug }: { courseSlug?: string }) {
             Services at (619) 594-6473 as early as possible.
           </P>
 
-          <hr className="ruling-double" />
         </div>
       ) : course === 'cs577' ? (
         <div>
           <P>Syllabus details coming soon.</P>
-          <hr className="ruling-double" />
         </div>
       ) : course === 'cs250' ? (
         <div>
           <P>Syllabus details coming soon.</P>
-          <hr className="ruling-double" />
         </div>
       ) : (
         <div>
