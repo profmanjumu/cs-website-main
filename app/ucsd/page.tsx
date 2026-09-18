@@ -10,7 +10,7 @@ export default function OutreachHubPage() {
 
   return (
     <main>
-      <header className="px-6 sm:px-10 pt-8 pb-[22px]">
+      <header className="page-gutter pt-8 pb-[22px]">
         <p className="eyebrow text-pink m-0 mb-3.5">Extended Studies</p>
         <h1 className="font-display font-light text-[60px] leading-[0.95] tracking-[-0.035em] text-paper m-0">
           Outreach

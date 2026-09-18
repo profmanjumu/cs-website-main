@@ -35,7 +35,7 @@ export default function ClassTabs({
 
   return (
     <div className="pb-11">
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-[26px] items-start px-6 sm:px-10">
+      <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_280px] gap-[26px] items-start page-gutter">
         <div>
           <div className="flex flex-wrap gap-2 mb-5">
             {tabLabels.map((tab) => (

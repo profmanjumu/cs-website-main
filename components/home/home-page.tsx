@@ -16,18 +16,18 @@ const courseRows = sdsuTabOrder.map((name) => ({
 
 export default function HomePage() {
   return (
-    <main className="text-ink-text">
+    <main className="w-full text-ink-text">
       <HomeConsoleEgg />
-      <div className="px-6 sm:px-10 pt-[46px] pb-[26px] flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+      <div className="home-hero page-gutter pt-10 pb-8">
         <h1 className="m-0">
-          <Misregister text={"Manju\u2019s\nClassroom"} />
+          <Misregister text={"Manju\u2019s Classroom"} />
         </h1>
         <OfficeHoursPill />
       </div>
 
-      <div className="px-6 sm:px-10">
+      <div className="page-gutter">
         <p className="section-bar">Courses · Fall 2026</p>
-        <div>
+        <div className="course-index">
           {courseRows.map((row) => (
             <CourseRow
               key={row.name}
@@ -40,7 +40,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <div className="px-6 sm:px-10 pt-[34px] pb-2.5 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+      <div className="home-intro page-gutter pt-10 pb-2.5">
         <div>
           {homeDescription.body.map((para) => (
             <p
@@ -54,17 +54,17 @@ export default function HomePage() {
         <TerminalBlock />
       </div>
 
-      <div className="px-6 sm:px-10 pt-[30px] pb-5">
+      <div className="page-gutter pt-8 pb-5">
         <ContactTiles />
       </div>
 
-      <div className="px-6 sm:px-10 pt-[22px] pb-6">
+      <div className="page-gutter pt-6 pb-6">
         <Link href="/sdsu" className="btn-primary">
           Enter the SDSU hub &rarr;
         </Link>
       </div>
 
-      <p className="console-hint px-6 sm:px-10 pb-8">psst: open devtools</p>
+      <p className="console-hint page-gutter pb-8">psst: open devtools</p>
     </main>
   )
 }

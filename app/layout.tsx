@@ -13,6 +13,11 @@ export const metadata: Metadata = {
   description: 'SDSU Computer Science — Manju Muralidharan Priya',
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
+
 const display = Big_Shoulders_Display({
   subsets: ['latin'],
   weight: ['400', '600', '800'],
@@ -48,12 +53,12 @@ export default function RootLayout({
           display.variable,
           body.variable,
           mono.variable,
-          'bg-paper text-ink-text antialiased font-body'
+          'min-h-dvh bg-paper text-ink-text antialiased font-body'
         )}
       >
-        <div className="md:grid md:grid-cols-[210px_1fr] md:items-start">
+        <div className="w-full min-h-dvh min-w-0 md:grid md:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[240px_minmax(0,1fr)] xl:grid-cols-[260px_minmax(0,1fr)]">
           <SiteRail />
-          <div className="min-w-0">{children}</div>
+          <div className="content-shell min-w-0 w-full">{children}</div>
         </div>
       </body>
     </html>

@@ -23,9 +23,9 @@ const clubs = [
 
 const ClubLogos = () => {
   return (
-    <section className="px-6 sm:px-10 pt-[30px]">
+    <section className="page-gutter pt-[30px]">
       <h6 className="eyebrow m-0 mb-3.5">Clubs</h6>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 gap-x-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 gap-x-5">
         {clubs.map((club) => (
           <div
             key={club.name}

@@ -56,10 +56,14 @@ export default function OutreachHub() {
   const current = programs.find((c) => c.name === active) ?? programs[0]
 
   return (
-    <div className="px-6 sm:px-10 pb-11">
-      <span className="eyebrow text-pink inline-block mb-4">Summer 2026</span>
+    <div className="pb-11">
+      <div className="page-gutter">
+        <span className="eyebrow text-pink inline-block mb-4">Summer 2026</span>
+      </div>
       <HubTabBar tabs={tabs} active={active} onChange={setActive} />
-      {current && <ProgramPanel course={current} />}
+      <div className="page-gutter">
+        {current && <ProgramPanel course={current} />}
+      </div>
     </div>
   )
 }

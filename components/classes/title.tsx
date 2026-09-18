@@ -12,7 +12,7 @@ type TitleProps = {
 
 const Title = ({ children, eyebrow, backHref, backLabel }: TitleProps) => {
   return (
-    <div className="px-6 sm:px-10 pt-8 pb-[22px]">
+    <div className="page-gutter pt-8 pb-[22px]">
       {backHref && (
         <div className="mb-5">
           <BackButton href={backHref} label={backLabel ?? 'Back'} />

@@ -9,7 +9,7 @@ type HubTabBarProps = {
 export function HubTabBar({ tabs, active, onChange }: HubTabBarProps) {
   return (
     <div
-      className="flex flex-wrap gap-0.5 px-6 sm:px-10 pt-5"
+      className="flex flex-wrap gap-0.5 page-gutter pt-5"
       role="tablist"
       aria-label="Courses"
     >

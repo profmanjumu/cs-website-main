@@ -170,7 +170,7 @@ export function SiteRail() {
         </div>
       </div>
 
-      <aside className="hidden md:flex bg-paper flex-col gap-8 px-[22px] py-7 md:sticky md:top-0 md:h-screen md:border-r-[1.5px] md:border-purple">
+      <aside className="hidden md:flex w-full bg-paper flex-col gap-8 px-[22px] py-7 md:sticky md:top-0 md:h-dvh md:border-r-[1.5px] md:border-purple">
         <Link
           href="/"
           className="flex items-center gap-2.5 text-ink-text hover:text-ink-text no-underline"

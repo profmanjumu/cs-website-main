@@ -52,7 +52,7 @@ const PressFeatures = () => {
   if (pressFeatures.length === 0) return null
 
   return (
-    <section className="px-6 sm:px-10 mt-12 pb-11">
+    <section className="page-gutter mt-12 pb-11">
       <h6 className="eyebrow m-0 mb-3.5">In media</h6>
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 p-0 list-none">
         {pressFeatures.map(

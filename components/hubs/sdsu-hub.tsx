@@ -60,10 +60,10 @@ export default function SdsuHub({ courses, initialCourse }: SdsuHubProps) {
   const display = sdsuCourseDisplay[active.name]
 
   return (
-    <div>
+    <div className="w-full">
       <HubTabBar tabs={tabs} active={activeName} onChange={onChange} />
 
-      <header className="px-6 sm:px-10 pt-8 pb-[22px]">
+      <header className="page-gutter pt-8 pb-[22px]">
         <p className="eyebrow m-0 mb-3.5">
           San Diego State University &middot; Computer Science
         </p>

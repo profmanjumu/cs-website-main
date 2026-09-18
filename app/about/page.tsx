@@ -7,8 +7,8 @@ import { Misregister } from '@/components/ui/misregister'
 
 export default function AboutPage() {
   return (
-    <main className="text-ink-text">
-      <div className="px-6 sm:px-10 pt-[46px] pb-[30px] grid grid-cols-1 lg:grid-cols-[1fr_250px] gap-[30px] items-end">
+    <main className="w-full text-ink-text">
+      <div className="page-gutter pt-10 pb-[30px] grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_280px] gap-[30px] items-end">
         <div>
           <h1 className="m-0">
             <Misregister text="About Me" />
@@ -19,15 +19,15 @@ export default function AboutPage() {
             STEM instructor at UCSD Sally Ride Science.
           </p>
         </div>
-        <div className="justify-self-start lg:justify-self-end w-[250px]">
+        <div className="justify-self-start lg:justify-self-end w-full max-w-[280px]">
           <Image
             src="/ManjuFancy.jpg"
             alt="Portrait of Professor Manju"
-            width={200}
-            height={270}
+            width={280}
+            height={378}
             priority
             quality={90}
-            className="w-[200px] h-[270px] object-cover object-[50%_18%]"
+            className="w-full h-auto aspect-[200/270] object-cover object-[50%_18%]"
             style={{
               boxShadow: '0 0 0 1.5px var(--purple)',
             }}
@@ -35,14 +35,14 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="px-6 sm:px-10">
+      <div className="page-gutter">
         <p className="section-bar">Biography</p>
         <h2 className="font-display font-semibold text-[34px] tracking-[0.01em] text-ink-text m-0 pt-5">
           Manju Muralidharan Priya
         </h2>
       </div>
 
-      <div className="px-6 sm:px-10 pt-[34px] pb-1.5 grid grid-cols-1 md:grid-cols-2 gap-[26px]">
+      <div className="page-gutter pt-[34px] pb-1.5 grid grid-cols-1 md:grid-cols-2 gap-[26px]">
         <p className="measure font-body font-normal text-[15px] leading-[1.75] text-ink-text m-0">
           On campus, you&rsquo;ll find me in GMCS 538. I&rsquo;m the faculty advisor for Bolts Robotics and Girls Who Code, and I love nothing more than watching a student&rsquo;s first &ldquo;it works!&rdquo; moment.
         </p>
@@ -51,7 +51,7 @@ export default function AboutPage() {
         </p>
       </div>
 
-      <div className="px-6 sm:px-10 pt-7">
+      <div className="page-gutter pt-7">
         <ContactTiles />
       </div>
 
