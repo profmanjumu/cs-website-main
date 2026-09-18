@@ -53,13 +53,13 @@ const PressFeatures = () => {
 
   return (
     <section className="px-6 sm:px-10 mt-12 pb-11">
-      <h6 className="eyebrow text-vanilla m-0 mb-3.5">In media</h6>
+      <h6 className="eyebrow m-0 mb-3.5">In media</h6>
       <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 p-0 list-none">
         {pressFeatures.map(
           ({ outlet, headline, description, date, url, image }) => (
             <li
               key={`${outlet}-${headline}`}
-              className="bg-surface-panel border border-[rgba(233,233,237,0.12)] rounded-md"
+              className="bg-paper-deep border-[1.5px] border-purple"
             >
               <a
                 href={url}
@@ -68,7 +68,7 @@ const PressFeatures = () => {
                 className="group flex h-full flex-col overflow-hidden no-underline hover:text-inherit"
               >
                 {image && (
-                  <div className="relative w-full aspect-video overflow-hidden bg-surface-rail border-b border-[rgba(233,233,237,0.12)]">
+                  <div className="relative w-full aspect-video overflow-hidden bg-paper border-b-[1.5px] border-purple">
                     <Image
                       src={image.src}
                       alt={image.alt}
@@ -81,26 +81,26 @@ const PressFeatures = () => {
 
                 <div className="flex h-full flex-1 flex-col p-6">
                   <div className="flex items-center justify-between gap-3">
-                    <span className="eyebrow text-cadet">{outlet}</span>
+                    <span className="eyebrow">{outlet}</span>
                     <ArrowUpRight
                       size={14}
                       aria-hidden="true"
-                      className="shrink-0 text-cadet"
+                      className="shrink-0 text-purple"
                     />
                   </div>
 
-                  <h3 className="font-display font-normal text-lg leading-snug text-paper mt-3 mb-3">
+                  <h3 className="font-display font-semibold text-lg uppercase leading-snug text-ink-text mt-3 mb-3">
                     {headline}
                   </h3>
 
                   {description && (
-                    <p className="font-body font-light text-[15px] leading-relaxed text-cadet flex-1 m-0">
+                    <p className="font-body font-normal text-[15px] leading-relaxed text-ink-text flex-1 m-0">
                       {description}
                     </p>
                   )}
 
                   {date && (
-                    <time className="mt-4 font-body font-medium text-xs text-cadet">
+                    <time className="mt-4 font-mono text-[12px] text-ink-muted">
                       {date}
                     </time>
                   )}

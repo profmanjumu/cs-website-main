@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { InstagramLogo, LinkedinLogo, List, X } from '@phosphor-icons/react'
 
 import { cn } from '@/lib/utils'
@@ -45,26 +45,26 @@ export function SiteRail() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
 
-  const wordmark = (
-    <Link href="/" className="flex items-center gap-2.5 text-paper hover:text-paper">
-      <Image
-        src="/sticker.png"
-        alt=""
-        width={44}
-        height={44}
-        className="w-11 h-auto flex-none"
-        priority
-      />
-      <span className="font-display font-normal text-[19px] leading-[1.1] tracking-[-0.02em] text-paper">
-        Manju&rsquo;s
-        <br />
-        Classroom
-      </span>
-    </Link>
-  )
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false)
+    }
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [open])
 
   const links = (
-    <nav className="flex flex-col gap-0.5">
+    <nav className="flex flex-col gap-0.5" aria-label="Site">
       {navItems.map((item) => {
         const active = isActive(item.href, pathname)
         return (
@@ -73,10 +73,10 @@ export function SiteRail() {
             href={item.href}
             onClick={() => setOpen(false)}
             className={cn(
-              'font-body text-[14px] px-2.5 py-2 rounded-sm no-underline transition-colors duration-150',
+              'font-body text-[14px] px-2.5 min-h-12 inline-flex items-center no-underline transition-colors duration-150',
               active
-                ? 'bg-vanilla text-ink hover:text-ink'
-                : 'text-cadet hover:text-cadet hover:bg-[rgba(139,127,172,0.18)]'
+                ? 'bg-purple text-paper-on-ink hover:text-paper-on-ink'
+                : 'text-ink-text hover:text-ink-text hover:bg-paper-deep'
             )}
           >
             {item.label}
@@ -88,7 +88,7 @@ export function SiteRail() {
 
   const elsewhere = (
     <div className="mt-auto flex flex-col gap-2.5">
-      <span className="eyebrow text-cadet">Elsewhere</span>
+      <span className="eyebrow">Elsewhere</span>
       <span className="flex gap-3">
         {socialLinks.map(({ name, href, Icon }) => (
           <a
@@ -97,33 +97,101 @@ export function SiteRail() {
             aria-label={name}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-pink hover:text-vanilla inline-flex"
+            className="text-purple hover:text-purple inline-flex items-center justify-center min-h-12 min-w-12"
           >
             <Icon size={18} aria-hidden="true" />
           </a>
         ))}
       </span>
-      <span className="text-[11px] text-cadet">&copy; 2026</span>
+      <span className="font-mono text-[12px] text-ink-muted">&copy; 2026</span>
     </div>
   )
 
   return (
-    <aside className="bg-surface-rail flex flex-col gap-8 px-[22px] py-7 md:sticky md:top-0 md:h-screen md:shadow-[inset_-1px_0_0_rgba(233,233,237,0.12)]">
-      <div className="flex items-center justify-between gap-3">
-        {wordmark}
+    <>
+      <header className="md:hidden sticky top-0 z-50 flex items-center justify-between gap-3 bg-paper px-4 border-b-[1.5px] border-purple">
+        <Link
+          href="/"
+          className="flex items-center gap-2 min-h-12 text-ink-text hover:text-ink-text no-underline"
+        >
+          <Image
+            src="/sticker.png"
+            alt=""
+            width={20}
+            height={20}
+            className="w-5 h-5 flex-none object-contain"
+            priority
+          />
+          <span className="font-display font-semibold text-[17px] uppercase leading-none tracking-[0.01em] text-ink-text">
+            Manju&rsquo;s Classroom
+          </span>
+        </Link>
         <button
           type="button"
-          className="md:hidden text-cadet hover:text-paper p-1"
+          className="flex items-center justify-center w-12 h-12 -mr-1 text-ink-text"
           aria-label={open ? 'Close menu' : 'Open menu'}
-          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls="mobile-site-nav"
+          onClick={() => setOpen((value) => !value)}
         >
-          {open ? <X size={22} /> : <List size={22} />}
+          {open ? (
+            <X size={22} aria-hidden="true" />
+          ) : (
+            <List size={22} aria-hidden="true" />
+          )}
         </button>
+      </header>
+
+      <div
+        className={cn(
+          'md:hidden fixed inset-0 z-40',
+          open ? 'pointer-events-auto' : 'pointer-events-none'
+        )}
+        aria-hidden={!open}
+        {...(open ? {} : { inert: '' })}
+      >
+        {open ? (
+          <button
+            type="button"
+            aria-label="Close menu"
+            className="nav-overlay absolute inset-0 bg-ink-text/30"
+            onClick={() => setOpen(false)}
+          />
+        ) : null}
+        <div
+          id="mobile-site-nav"
+          className={cn(
+            'nav-overlay absolute top-0 right-0 flex h-full w-[min(20rem,86vw)] flex-col gap-8 bg-paper px-6 pb-8 pt-16 border-l-[1.5px] border-purple',
+            open ? 'translate-x-0' : 'translate-x-full'
+          )}
+        >
+          {links}
+          {elsewhere}
+        </div>
       </div>
-      <div className={cn('flex-col gap-8 flex-1', open ? 'flex' : 'hidden md:flex')}>
+
+      <aside className="hidden md:flex bg-paper flex-col gap-8 px-[22px] py-7 md:sticky md:top-0 md:h-screen md:border-r-[1.5px] md:border-purple">
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 text-ink-text hover:text-ink-text no-underline"
+        >
+          <Image
+            src="/sticker.png"
+            alt=""
+            width={44}
+            height={44}
+            className="w-11 h-auto flex-none"
+            priority
+          />
+          <span className="font-display font-semibold text-[19px] uppercase leading-[1.1] tracking-[0.01em] text-ink-text">
+            Manju&rsquo;s
+            <br />
+            Classroom
+          </span>
+        </Link>
         {links}
         {elsewhere}
-      </div>
-    </aside>
+      </aside>
+    </>
   )
 }

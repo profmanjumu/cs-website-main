@@ -102,7 +102,7 @@ const HeroStrip = () => {
           Every course here is built around one idea: the best way to understand a system is to build one. No toy problems. Students design, argue, implement, and defend real solutions to real constraints and walk away with something to show for it.
         </p>
         <p className="text-[14px] leading-[1.82] text-inkMuted mb-3 anim-fade-up">
-          Whether it&rsquo;s tracing Dijkstra&rsquo;s algorithm on a weighted graph, benchmarking data structures head-to-head, or finding a story buried in the dataset the work is the learning.
+          Whether it&rsquo;s tracing Dijkstra&rsquo;s algorithm on a weighted graph, benchmarking data structures head-to-head, or finding a story buried in the dataset, the work is the learning.
         </p>
         <hr className="ruling-double" />
         <div className="flex gap-2.5 flex-wrap mt-1.5 anim-fade-up">

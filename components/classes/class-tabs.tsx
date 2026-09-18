@@ -44,28 +44,28 @@ export default function ClassTabs({
                 type="button"
                 onClick={() => setActive(tab.id)}
                 className={[
-                  'font-body font-medium text-[13px] tracking-[0.06em] uppercase px-3.5 py-2 rounded-sm cursor-pointer',
+                  'font-mono font-normal text-[12px] tracking-[0.08em] uppercase px-3.5 min-h-12 cursor-pointer',
                   active === tab.id
-                    ? 'bg-[rgba(139,127,172,0.22)] border border-lavender text-paper'
-                    : 'bg-transparent border border-[rgba(233,233,237,0.16)] text-cadet hover:text-paper',
+                    ? 'bg-purple text-paper-on-ink border border-purple'
+                    : 'bg-transparent border border-purple text-ink-text hover:bg-paper-deep',
                 ].join(' ')}
               >
                 {tab.label}
               </button>
             ))}
           </div>
-          <div className="bg-surface-panel border border-[rgba(233,233,237,0.12)] rounded-md px-[26px] py-6 min-h-[320px]">
+          <div className="bg-paper-deep border-[1.5px] border-purple px-[26px] py-6">
             {active === 'syllabus' && <Syllabus courseSlug={slug} />}
             {active === 'topics' && (
               <div>
-                <p className="font-body font-light text-[14px] leading-[1.7] text-cadet border-l-2 border-lavender pl-3 mb-[18px] max-w-[60ch]">
+                <p className="font-body font-normal text-[14px] leading-[1.7] text-ink-text border-l-2 border-coral pl-3 mb-[18px] max-w-[60ch]">
                   Each topic below is linked to the corresponding slides, video
                   lectures and external resources.
                 </p>
                 {topics.length > 0 ? (
                   <Topics topics={topics} basePath={`/${slug}`} />
                 ) : (
-                  <p className="font-body font-light text-[14px] text-cadet m-0">
+                  <p className="font-body font-normal text-[14px] text-ink-text m-0">
                     No topics found for this course folder.
                   </p>
                 )}
@@ -76,9 +76,9 @@ export default function ClassTabs({
         </div>
 
         <aside>
-          <h6 className="eyebrow text-cadet m-0 mb-2.5">Latest</h6>
-          <div className="border border-[rgba(233,233,237,0.14)] rounded-md overflow-hidden">
-            <div className="px-3 py-2.5 font-body font-medium text-[12px] tracking-[0.04em] text-lavender shadow-[inset_0_-1px_0_rgba(233,233,237,0.12)]">
+          <h6 className="eyebrow m-0 mb-2.5">Latest</h6>
+          <div className="border-[1.5px] border-purple overflow-hidden">
+            <div className="px-3 min-h-12 flex items-center font-mono text-[12px] tracking-[0.08em] uppercase text-ink-text border-b-[1.5px] border-purple">
               Discord &middot; {courseTitle}
             </div>
             {discordWidgetId ? (
@@ -89,11 +89,11 @@ export default function ClassTabs({
                 frameBorder={0}
                 sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
                 title={`${courseTitle} Discord`}
-                className="bg-surface-panel"
+                className="bg-paper-deep"
               />
             ) : (
               <div className="px-[18px] py-[26px] text-left">
-                <p className="font-body font-light text-[13px] leading-[1.6] text-cadet m-0">
+                <p className="font-body font-normal text-[13px] leading-[1.6] text-ink-text m-0">
                   Course Discord widget mounts here.
                 </p>
               </div>

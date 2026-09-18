@@ -10,7 +10,7 @@ const CategoryDivider = ({ children, isResources }: CategoryDividerProps) => {
     <div className={`${isResources ? 'mb-0' : 'mb-12'} h-full`}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-left">
-          <h2 className="leading-loose font-display tracking-tight text-4xl text-vanilla">
+          <h2 className="leading-loose font-display font-semibold tracking-tight text-4xl text-ink-text">
             {children}
           </h2>
         </div>

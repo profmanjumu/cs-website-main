@@ -21,15 +21,15 @@ export const Topics = ({ topics, basePath }: TopicsProps) => {
         <li key={link.id}>
           <Link
             href={`${root}/${encodeURI(link.name.split(' ').join('-'))}/${link.id}`}
-            className="rowlink grid grid-cols-[1fr_auto] gap-3.5 items-center py-2.5 no-underline shadow-[inset_0_-1px_0_rgba(233,233,237,0.1)] hover:text-inherit"
+            className="rowlink grid grid-cols-[1fr_auto] gap-3.5 items-center min-h-12 no-underline border-b-[1.5px] border-purple hover:text-inherit hover:bg-paper-deep"
           >
             <span>
-              <span className="block font-body font-medium text-[12px] tracking-[0.1em] uppercase text-vanilla">
+              <span className="block font-mono font-normal text-[12px] tracking-[0.1em] uppercase text-ink-muted">
                 Topic {String(index + 1).padStart(2, '0')}
               </span>
-              <span className="block text-[15px] text-paper">{link.name}</span>
+              <span className="block text-[15px] text-ink-text">{link.name}</span>
             </span>
-            <ArrowUpRight size={15} className="text-cadet shrink-0" aria-hidden />
+            <ArrowUpRight size={15} className="text-purple shrink-0" aria-hidden />
           </Link>
         </li>
       ))}

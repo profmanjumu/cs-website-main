@@ -2,19 +2,19 @@
 import { usePathname } from 'next/navigation'
 
 const H3 = ({ children }: { children: React.ReactNode }) => (
-  <h3 className="font-body font-medium text-[12px] uppercase tracking-[0.14em] text-vanilla m-0 mb-2.5 mt-6 pb-1.5 shadow-[inset_0_-1px_0_rgba(222,192,174,0.4)] first:mt-0">
+  <h3 className="font-mono font-normal text-[12px] uppercase tracking-[0.12em] text-ink-muted m-0 mb-2.5 mt-6 pb-1.5 border-b-[1.5px] border-purple first:mt-0">
     {children}
   </h3>
 )
 
 const P = ({ children }: { children: React.ReactNode }) => (
-  <p className="font-body font-light text-[14px] leading-[1.75] text-cadet mb-2.5">
+  <p className="font-body font-normal text-[14px] leading-[1.75] text-ink-text mb-2.5">
     {children}
   </p>
 )
 
 const UL = ({ children }: { children: React.ReactNode }) => (
-  <ul className="syllabus-list font-body font-light text-[14px] leading-[1.7] text-cadet mb-4">
+  <ul className="syllabus-list font-body font-normal text-[14px] leading-[1.7] text-ink-text mb-4">
     {children}
   </ul>
 )

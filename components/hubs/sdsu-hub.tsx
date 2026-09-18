@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 
 import ClassTabs from '@/components/classes/class-tabs'
 import { HubTabBar } from '@/components/hubs/hub-tab-bar'
+import { Misregister } from '@/components/ui/misregister'
 import {
   courseNameFromParam,
   metaLines,
@@ -63,16 +64,16 @@ export default function SdsuHub({ courses, initialCourse }: SdsuHubProps) {
       <HubTabBar tabs={tabs} active={activeName} onChange={onChange} />
 
       <header className="px-6 sm:px-10 pt-8 pb-[22px]">
-        <p className="eyebrow text-pink m-0 mb-3.5">
+        <p className="eyebrow m-0 mb-3.5">
           San Diego State University &middot; Computer Science
         </p>
-        <h1 className="font-display font-light text-[60px] leading-[0.95] tracking-[-0.035em] text-paper m-0">
-          {active.name}
+        <h1 className="m-0">
+          <Misregister text={active.name} />
         </h1>
-        <p className="font-display font-light text-[26px] text-vanilla mt-2.5 mb-0">
+        <p className="font-display font-semibold text-[26px] uppercase text-ink-text mt-2.5 mb-0">
           {display?.title ?? active.title}
         </p>
-        <div className="font-body font-light text-[13px] text-cadet mt-1">
+        <div className="font-mono text-[12px] text-ink-muted lowercase mt-1">
           {metaLines(display?.meta).map((line) => (
             <p key={line} className="m-0">
               {line}

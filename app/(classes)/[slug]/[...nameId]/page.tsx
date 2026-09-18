@@ -94,7 +94,7 @@ export default async function TopicPage({ params }: TopicsPageProps) {
   })
 
   return (
-    <main className="flex flex-col gap-y-12 min-h-screen">
+    <main className="flex flex-col gap-y-12">
       <Title>{decodeURIComponent(title).split('-').join(' ')}</Title>
       <ExternalLinks />
       {sortedCategories.map((category) => (

@@ -1,6 +1,7 @@
 import React from 'react'
 
 import BackButton from '@/components/ui/back-button'
+import { Misregister } from '@/components/ui/misregister'
 
 type TitleProps = {
   children: React.ReactNode
@@ -17,11 +18,15 @@ const Title = ({ children, eyebrow, backHref, backLabel }: TitleProps) => {
           <BackButton href={backHref} label={backLabel ?? 'Back'} />
         </div>
       )}
-      <p className="eyebrow text-pink m-0 mb-3.5">
+      <p className="eyebrow m-0 mb-3.5">
         {eyebrow ?? 'San Diego State University \u00b7 Computer Science'}
       </p>
-      <h1 className="font-display font-light text-[60px] leading-[0.95] tracking-[-0.035em] text-paper m-0">
-        {children}
+      <h1 className="m-0">
+        {typeof children === 'string' ? (
+          <Misregister text={children} />
+        ) : (
+          children
+        )}
       </h1>
     </div>
   )

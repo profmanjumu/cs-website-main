@@ -48,7 +48,7 @@ export function TopicPageBack() {
   if (!match) return null
 
   return (
-    <div className="sticky top-0 z-20 bg-surface px-6 sm:px-10 pt-6 pb-2">
+    <div className="sticky top-0 z-20 bg-paper px-6 sm:px-10 pt-6 pb-2">
       <BackButton href={`/sdsu?course=cs-${match[1]}`} label="Back to course" />
     </div>
   )

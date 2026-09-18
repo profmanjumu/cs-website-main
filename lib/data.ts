@@ -116,7 +116,7 @@ export const homeDescription = {
   deck: 'A classroom where assignments have side quests.',
   body: [
     'Every course here is built around one idea: the best way to understand a system is to build one. No toy problems. Students design, argue, implement, and defend real solutions to real constraints and walk away with something to show for it.',
-    "Whether it's tracing Dijkstra's algorithm on a weighted graph, benchmarking data structures head-to-head, or finding a story buried in the dataset the work is the learning.",
+    'Whether it\'s tracing Dijkstra\'s algorithm on a weighted graph, benchmarking data structures head-to-head, or finding a story buried in the dataset, the work is the learning.',
   ],
 } as const
 

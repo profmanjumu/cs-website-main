@@ -20,10 +20,23 @@ const config = {
     },
     extend: {
       fontFamily: {
-        display: ['var(--font-display)', ...fontFamily.sans],
-        body: ['var(--font-body)', ...fontFamily.sans],
+        display: ['var(--font-display)', 'Big Shoulders Display', ...fontFamily.sans],
+        body: ['var(--font-body)', 'Instrument Sans', ...fontFamily.sans],
+        mono: ['var(--font-mono)', 'Martian Mono', ...fontFamily.mono],
       },
       colors: {
+        paper: {
+          DEFAULT: '#EFDCD3',
+          deep: '#E6CEC3',
+          'on-ink': '#EFDCD3',
+        },
+        'paper-deep': '#E6CEC3',
+        'paper-on-ink': '#EFDCD3',
+        'ink-text': '#2A1B4A',
+        'ink-muted': '#7A5F52',
+        purple: '#5B2CD9',
+        coral: '#EE4B2E',
+
         ground: '#0F111C',
         surface: {
           DEFAULT: '#161826',
@@ -36,7 +49,6 @@ const config = {
         pink: '#D4949D',
         vanilla: '#DEC0AE',
         cadet: '#ACB0CC',
-        paper: '#E9E9ED',
         band: '#F3F5FE',
 
         border: 'hsl(var(--border))',

@@ -16,7 +16,7 @@ export default function ResourcesPanel({ slug }: ResourcesPanelProps) {
 
   if (!links || Object.keys(links).length === 0) {
     return (
-      <p className="font-body font-light text-[14px] text-cadet m-0">
+      <p className="font-body font-normal text-[14px] text-ink-text m-0">
         No resources Added
       </p>
     )
@@ -26,7 +26,7 @@ export default function ResourcesPanel({ slug }: ResourcesPanelProps) {
     <div className="flex flex-col gap-5">
       {Object.entries(links).map(([topic, items]) => (
         <div key={topic}>
-          <h6 className="eyebrow text-vanilla m-0 mb-2.5 pb-1.5 shadow-[inset_0_-1px_0_rgba(222,192,174,0.4)]">
+          <h6 className="eyebrow m-0 mb-2.5 pb-1.5 border-b-[1.5px] border-purple">
             {topic}
           </h6>
           <div className="flex flex-wrap gap-2">
@@ -36,7 +36,7 @@ export default function ResourcesPanel({ slug }: ResourcesPanelProps) {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-body font-light text-[13px] text-cadet no-underline px-2.5 py-[5px] border border-[rgba(233,233,237,0.16)] rounded-sm hover:border-lavender hover:text-paper"
+                className="inline-flex items-center min-h-12 font-body font-normal text-[13px] text-ink-text no-underline px-2.5 border-[1.5px] border-purple hover:bg-paper"
               >
                 {item.name}
               </Link>

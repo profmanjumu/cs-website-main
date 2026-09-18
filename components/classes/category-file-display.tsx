@@ -34,12 +34,16 @@ const CategoryFileDisplay: React.FC<CategoryFileDisplayProps> = ({
           return (
             <li key={index} style={{ width: '100%', height: '500px' }}>
               <div className="flex items-center gap-x-3 m-2">
-                <h2 className="text-muted-foreground">
+                <h2 className="text-ink-text">
                   {fileNameWithoutExtension}
                 </h2>
                 {showDownloadButton && (
-                  <a href={file.webContentLink}>
-                    <DownloadIcon className="opacity-50 hover:opacity-100 transition-colors duration-150" />
+                  <a
+                    href={file.webContentLink}
+                    aria-label={`Download ${fileNameWithoutExtension}`}
+                    className="inline-flex items-center justify-center min-h-12 min-w-12"
+                  >
+                    <DownloadIcon aria-hidden="true" />
                   </a>
                 )}
               </div>

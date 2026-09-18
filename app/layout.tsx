@@ -1,5 +1,9 @@
 import type { Metadata } from 'next'
-import { Outfit, Manrope } from 'next/font/google'
+import {
+  Big_Shoulders_Display,
+  Instrument_Sans,
+  Martian_Mono,
+} from 'next/font/google'
 import './globals.css'
 import { SiteRail } from '@/components/navigation/site-rail'
 import { cn } from '@/lib/utils'
@@ -9,16 +13,22 @@ export const metadata: Metadata = {
   description: 'SDSU Computer Science — Manju Muralidharan Priya',
 }
 
-const display = Outfit({
+const display = Big_Shoulders_Display({
   subsets: ['latin'],
-  weight: ['300', '400', '500'],
+  weight: ['400', '600', '800'],
   variable: '--font-display',
 })
 
-const body = Manrope({
+const body = Instrument_Sans({
   subsets: ['latin'],
-  weight: ['300', '400', '500'],
+  weight: ['400', '500'],
   variable: '--font-body',
+})
+
+const mono = Martian_Mono({
+  subsets: ['latin'],
+  weight: ['300', '400'],
+  variable: '--font-mono',
 })
 
 export default function RootLayout({
@@ -37,12 +47,13 @@ export default function RootLayout({
         className={cn(
           display.variable,
           body.variable,
-          'min-h-screen bg-ground text-paper antialiased font-body font-light'
+          mono.variable,
+          'bg-paper text-ink-text antialiased font-body'
         )}
       >
-        <div className="min-h-screen md:grid md:grid-cols-[210px_1fr]">
+        <div className="md:grid md:grid-cols-[210px_1fr] md:items-start">
           <SiteRail />
-          <div className="bg-surface min-h-screen min-w-0">{children}</div>
+          <div className="min-w-0">{children}</div>
         </div>
       </body>
     </html>
