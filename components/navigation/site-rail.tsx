@@ -148,7 +148,7 @@ export function SiteRail() {
           open ? 'pointer-events-auto' : 'pointer-events-none'
         )}
         aria-hidden={!open}
-        {...(open ? {} : { inert: '' })}
+        inert={!open || undefined}
       >
         {open ? (
           <button

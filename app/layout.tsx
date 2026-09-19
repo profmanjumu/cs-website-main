@@ -22,18 +22,21 @@ const display = Big_Shoulders_Display({
   subsets: ['latin'],
   weight: ['400', '600', '800'],
   variable: '--font-display',
+  adjustFontFallback: false,
 })
 
 const body = Instrument_Sans({
   subsets: ['latin'],
   weight: ['400', '500'],
   variable: '--font-body',
+  adjustFontFallback: false,
 })
 
 const mono = Martian_Mono({
   subsets: ['latin'],
   weight: ['300', '400'],
   variable: '--font-mono',
+  adjustFontFallback: false,
 })
 
 export default function RootLayout({
