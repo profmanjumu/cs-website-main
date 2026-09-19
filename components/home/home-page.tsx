@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import { BstCanvas } from '@/components/home/bst-canvas'
 import { HomeConsoleEgg } from '@/components/home/home-console-egg'
 import { OfficeHoursPill } from '@/components/home/office-hours-pill'
 import { TerminalBlock } from '@/components/home/terminal-block'
@@ -18,12 +19,15 @@ export default function HomePage() {
   return (
     <main className="w-full text-ink-text">
       <HomeConsoleEgg />
-      <div className="home-hero page-gutter pt-10 pb-8">
-        <h1 className="m-0">
-          <Misregister text={"Manju\u2019s Classroom"} />
-        </h1>
-        <OfficeHoursPill />
-      </div>
+      <section className="home-hero-stage">
+        <BstCanvas />
+        <div className="home-hero page-gutter pt-10 pb-8">
+          <h1 className="m-0">
+            <Misregister text={"Manju\u2019s Classroom"} />
+          </h1>
+          <OfficeHoursPill />
+        </div>
+      </section>
 
       <div className="page-gutter">
         <p className="section-bar">Courses · Fall 2026</p>
