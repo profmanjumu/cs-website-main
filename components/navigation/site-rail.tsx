@@ -1,12 +1,33 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { InstagramLogo, LinkedinLogo, List, X } from '@phosphor-icons/react'
 
 import { cn } from '@/lib/utils'
+
+function BrandMark({ size = 'md' }: { size?: 'sm' | 'md' }) {
+  return (
+    <span
+      className={cn(
+        'relative inline-block flex-none',
+        size === 'sm' ? 'h-5 w-5' : 'h-11 w-11'
+      )}
+      aria-hidden="true"
+    >
+      <span
+        className={cn(
+          'absolute inset-0 rounded-full bg-coral mix-blend-multiply',
+          size === 'sm'
+            ? 'translate-x-[1.5px] translate-y-[1.5px]'
+            : 'translate-x-[3px] translate-y-[3px]'
+        )}
+      />
+      <span className="relative block h-full w-full rounded-full bg-purple" />
+    </span>
+  )
+}
 
 const navItems = [
   { label: 'Home', href: '/' },
@@ -114,14 +135,7 @@ export function SiteRail() {
           href="/"
           className="flex items-center gap-2 min-h-12 text-ink-text hover:text-ink-text no-underline"
         >
-          <Image
-            src="/sticker.png"
-            alt=""
-            width={20}
-            height={20}
-            className="w-5 h-5 flex-none object-contain"
-            priority
-          />
+          <BrandMark size="sm" />
           <span className="font-display font-semibold text-[17px] uppercase leading-none tracking-[0.01em] text-ink-text">
             Manju&rsquo;s Classroom
           </span>
@@ -175,14 +189,7 @@ export function SiteRail() {
           href="/"
           className="flex items-center gap-2.5 text-ink-text hover:text-ink-text no-underline"
         >
-          <Image
-            src="/sticker.png"
-            alt=""
-            width={44}
-            height={44}
-            className="w-11 h-auto flex-none"
-            priority
-          />
+          <BrandMark />
           <span className="font-display font-semibold text-[19px] uppercase leading-[1.1] tracking-[0.01em] text-ink-text">
             Manju&rsquo;s
             <br />
