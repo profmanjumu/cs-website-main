@@ -5,7 +5,7 @@ import {
   Martian_Mono,
 } from 'next/font/google'
 import './globals.css'
-import { SiteRail } from '@/components/navigation/site-rail'
+import { SiteHeader } from '@/components/navigation/site-header'
 import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
@@ -59,8 +59,8 @@ export default function RootLayout({
           'min-h-dvh bg-paper text-ink-text antialiased font-body'
         )}
       >
-        <div className="w-full min-h-dvh min-w-0 md:grid md:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[240px_minmax(0,1fr)] xl:grid-cols-[260px_minmax(0,1fr)]">
-          <SiteRail />
+        <div className="w-full min-h-dvh min-w-0">
+          <SiteHeader />
           <div className="content-shell min-w-0 w-full">{children}</div>
         </div>
       </body>

@@ -1,1 +1,1 @@
-export { SiteRail as Nav } from './site-rail'
+export { SiteHeader as Nav } from './site-header'

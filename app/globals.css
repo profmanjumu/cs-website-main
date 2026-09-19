@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    --site-header-height: 3.25rem;
     --paper: #efdcd3;
     --paper-deep: #e6cec3;
     --ink-text: #2a1b4a;
